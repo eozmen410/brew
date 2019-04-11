@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Map</title>
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 800px;
+
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    /* html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    } */
+    #list{ 
+      /* height: 100%; */
+    }
+  </style>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+      var data = {{ data| tojson}}
+      console.log(data)
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'map.js') }}"></script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeOQ7MH8jG1VFgH7Pz5ziAoL2WQ_C3sdk&callback=initMap">
+      </script>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-4" id= "list"> List Goes Here </div>
+    <div id="map" class="col-md-8">MAP</div>
+  </div>
+</body>
+
+</html>
