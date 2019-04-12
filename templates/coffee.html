@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <style>
+            #clockdiv{
+                font-family: sans-serif;
+                color: #fff;
+                display: inline-block;
+                font-weight: 100;
+                text-align: center;
+                font-size: 30px;
+            }
+
+            #clockdiv > div{
+                padding: 10px;
+                border-radius: 3px;
+                background: #00BF96;
+                display: inline-block;
+            }
+
+            #clockdiv div > span{
+                padding: 15px;
+                border-radius: 3px;
+                background: #00816A;
+                display: inline-block;
+            }
+
+            .smalltext{
+                padding-top: 5px;
+                font-size: 16px;
+            }
+            #progress {
+                width: 50%;
+                background-color: grey;
+            }
+            #p_bar {
+                width: 1%;
+                height: 30px;
+                background-color: green;    
+            }
+            #step_img{
+                max-width: 250px;
+                max-height: 250px;
+                padding: 50px;
+            }
+            #imgdiv {
+                display: block;
+                height: 300px;
+            }
+        </style>
+        <script type="text/javascript">
+            var data = {{data|tojson}}
+        </script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'coffee.js') }}"></script>
+    </head>
+    <body>
+        <div class="container-fluid" >
+        <div id="steps"> Step 1</div>
+        <div id="imgdiv"> <img id="step_img"> </div>
+        <button id="prevBtn" class="btn btn-dark">Previous Step</button> 
+        <button id="nextBtn" class="btn btn-dark">Next Step</button> <br>
+        <div id="clockdiv">
+        <div>
+            <span id="minutes"></span>
+            <div class="smalltext">Minutes</div>
+        </div>
+        <div>
+            <span id="seconds"></span>
+            <div class="smalltext">Seconds</div>
+            
+        </div>
+        <button class="btn btn-success" id="timer_start"> Start Timer!</button>
+        </div>
+        <div id="progress">
+                <div id="p_bar"></div>
+        </div>
+    </div>
+
+    </body>
+</html>

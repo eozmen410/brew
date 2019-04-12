@@ -1,10 +1,10 @@
 from flask import Flask, render_template
-from flask_googlemaps import GoogleMaps
-from flask_googlemaps import Map
+# from flask_googlemaps import GoogleMaps
+# from flask_googlemaps import Map
 from flask import Response, request, jsonify
 app = Flask(__name__)
 
-data = {
+m_data = {
     "Keith 'Bang Bang' McCurdy":
     {
         "address": '2245, 62 Grand St, New York, NY 10013',
@@ -21,10 +21,23 @@ data = {
     }
 }
 
-@app.route('/')
+coffee_data = {
+    "AeroPress" : {
+        "images" :["../static/images/aeropress1.jpg","../static/images/aeropress2.jpg","../static/images/aeropress3.jpg","../static/images/aeropress4.jpg","../static/images/aeropress5.jpg","../static/images/aeropress6.jpg","../static/images/aeropress7.jpg","../static/images/aeropress8.jpg","../static/images/aeropress9.jpg","../static/images/aeropress10.jpg"],
+        "nb_steps" : 10,
+        "timer" : [0,0.1,2,0,0,0,0,0,0,0]
+    }
+}
+
+@app.route('/map')
 def map_view():
-    global data
-    return render_template("map_test.html", data=data)
+    global m_data
+    return render_template("map_test.html", data=m_data)
+
+@app.route('/coffee')
+def coffee():
+    global coffee_data
+    return render_template("coffee.html", data=coffee_data)
 
 if __name__ == '__main__':
 	app.run(debug = True)
