@@ -18,6 +18,16 @@
 			background-color:black;
 			color: white;
 		}
+		.doneBtn {
+			font-weight: bold;
+			font-size: 16px;
+			padding: 15px;
+			width: 60%;
+			margin: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			
+		}
         .conceptItem {
     		text-align: center;
     		color: darkblue;
@@ -37,6 +47,10 @@
 		.rmvBtn {
 			color: red;
 		}
+		.hover {
+			background-color: lightyellow;
+			cursor: move;
+		}
         </style>
         <script type="text/javascript">
             var wish_list = {{wish_list|tojson}}
@@ -50,7 +64,7 @@
             
         <div class= "row">
             <div class="col-md-1"></div>
-            <div class="col-md-5" ><h3>My Wish List</h3><div id="wish_list"></div></div>
+            <div class="col-md-5" ><h3>My Wish List</h3><br> Click on the item to start brewing!<div id="wish_list"></div></div>
             <div class="col-md-5"><h3>Tried & Rated</h3><div id="done_list"></div></div>
             <div class="col-md-1"></div>
         </div>

@@ -14,7 +14,7 @@ function getTimeRemaining(endtime) {
       'seconds': seconds
     };
   }
-  
+var timeinterval
 function initializeClock(id, endtime) {
     var clock = $("#"+id) //document.getElementById(id);
     var minutesSpan = $("#minutes")//clock.querySelector('.minutes');
@@ -34,12 +34,14 @@ function initializeClock(id, endtime) {
   
       if (t.total <= 0) {
         clearInterval(timeinterval);
+        $("#timer_start").attr('disabled',false)
+        $("#timer_stop").attr('disabled',true)
         alert('timer done!')
       }
     }
   
     updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
+    timeinterval = setInterval(updateClock, 1000);
 }
 
 var step = 0  
@@ -53,10 +55,16 @@ $(document).ready(function(){
     $("#timer_start").click(function(){
         console.log('starting timer')
         startTimer();
-        
+        $("#timer_start").attr('disabled',true)
+        $("#timer_stop").attr('disabled',false)
+
     })
 
-
+    $("#timer_stop").click(function(){
+        clearInterval(timeinterval)
+        $("#timer_start").attr('disabled',false)
+        $("#timer_stop").attr('disabled',true)
+    })
 
 
     if (brew['timer'][step]=0) {
@@ -76,6 +84,47 @@ $(document).ready(function(){
         updateBar()
         updateTimer()
     })
+
+     /* 1. Visualizing things on Hover - See next part for action on click */
+  $('#stars li').on('mouseover', function(){
+    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+   
+    // Now highlight all the stars that's not after the current hovered star
+    $(this).parent().children('li.star').each(function(e){
+      if (e < onStar) {
+        $(this).addClass('hover');
+      }
+      else {
+        $(this).removeClass('hover');
+      }
+    });
+    
+  }).on('mouseout', function(){
+    $(this).parent().children('li.star').each(function(e){
+      $(this).removeClass('hover');
+    });
+  });
+  
+  
+  /* 2. Action to perform on click */
+  $('#stars li').on('click', function(){
+    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+    var stars = $(this).parent().children('li.star');
+    
+    for (i = 0; i < stars.length; i++) {
+      $(stars[i]).removeClass('selected');
+    }
+    
+    for (i = 0; i < onStar; i++) {
+      $(stars[i]).addClass('selected');
+    }
+    
+    // JUST RESPONSE (Not needed)
+    var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+    saveRating(ratingValue)
+  });
+
+
 })
 
 function startTimer() {
@@ -101,28 +150,61 @@ function updateTimer(){
     }
 }
 function updateStep() {
+    // $("#steps").html("Step "+ (step+1))
+    // $("#step_img").attr('src', images[step])
+    $("#expl").empty()
     $("#steps").html("Step "+ (step+1))
-    $("#step_img").attr('src', images[step])
+        $("#step_img").attr('src', images[step])
+        $("#expl").append(brew['explanations'][step])
     if (brew['timer'][step]==0) {
         $("#clockdiv").css('display', 'none')
     } else {
         $("#clockdiv").css('display', 'inline-block')
     }
-    if (step >= max_steps) {
+    if (step +1>= max_steps) {
         $("#nextBtn").attr('disabled', true)
+        addRateBtn()
     } else if (step <= 0) {
         $("#prevBtn").attr('disabled', true)
     } else {
         $("#nextBtn").attr('disabled', false)
         $("#prevBtn").attr('disabled', false)
+        
     }
 
 }
-
+function addRateBtn() {
+    $("#stardiv").removeClass('invisible')
+}
 
 function updateBar() {
     
     var width = step / brew['nb_steps'] *100
     $("#p_bar").css('width', width + '%')
     
+}
+
+function saveRating(ratingValue) {
+    console.log(ratingValue)
+    var saving = {
+        'brew': brew,
+        'rating': ratingValue
+    }
+    $.ajax({
+        type: 'POST',
+        url: '../add_done',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(saving),
+        success: function(result){
+            done_list= result['done_list']
+            console.log(done_list)
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    })
 }
