@@ -152,37 +152,30 @@ function updateTimer(){
 function updateStep() {
     // $("#steps").html("Step "+ (step+1))
     // $("#step_img").attr('src', images[step])
-    console.log(step)
     $("#expl").empty()
     $("#steps").html("Step "+ (step+1))
     $("#step_img").attr('src', images[step])
     $("#expl").append(brew['explanations'][step])
-
-    var tmr = brew['timer'][step]
-    if (step == max_steps){
-      $("#step_img").attr('src', '../static/images/coffee.jpg')
-      addRateBtn()
-      tmr=0
+    if (brew['timer'][step]==0) {
+        $("#clockdiv").css('display', 'none')
+    } else {
+        $("#clockdiv").css('display', 'inline-block')
+    }
+    if (step >= max_steps) {
+        $("#nextBtn").attr('disabled', true)
+        addRateBtn()
     } else if (step <= 0) {
         $("#prevBtn").attr('disabled', true)
         $("#stardiv").addClass('invisible')
-    // } else if (step >= max_steps) {
-    //   $("#nextBtn").attr('disabled', true)
-    //   addRateBtn()
-    //   tmr=0
+    } else if (step +1 == max_steps){
+      $("#step_img").attr('src', './images/coffee.jpg')
+      addRateBtn()
     } else {
         $("#nextBtn").attr('disabled', false)
         $("#prevBtn").attr('disabled', false)
         $("#stardiv").addClass('invisible')
         
     }
-
-
-    if (tmr==0) {
-      $("#clockdiv").css('display', 'none')
-  } else {
-      $("#clockdiv").css('display', 'inline-block')
-  }
 
 }
 function addRateBtn() {
