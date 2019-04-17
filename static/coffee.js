@@ -43,7 +43,7 @@ function initializeClock(id, endtime) {
 }
 
 var step = 0  
-var brew = data['AeroPress']
+// var brew = data['AeroPress']
 var images = brew['images']
 var max_steps = brew['nb_steps']
 $(document).ready(function(){
