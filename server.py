@@ -31,7 +31,7 @@ coffee_data = {
     ,
     "Espresso" : {
         "name": "Espresso",
-        "images": ["../static/images/esp1.jpg","../static/images/esp2.jpg","../static/images/esp3.jpg","../static/images/esp4.jpg","../static/images/esp5.jpg","../static/images/esp6.jpg","../static/images/esp7.jpg"],
+        "images": ["../static/images/esp1.jpg","../static/images/espr2.jpg","../static/images/espr3.jpg","../static/images/espr4.jpg","../static/images/espr5.jpg","../static/images/espr6.jpg","../static/images/espr7.jpg"],
         "nb_steps" : 7,
         "timer" : [0,0.1,2,0,0,0,0,0,0]
     },
