@@ -155,12 +155,14 @@ function updateStep() {
     console.log(step)
     $("#expl").empty()
     $("#steps").html("Step "+ (step+1))
+    // $("#progress").html((step+1)%max_steps *100 + "%")
     $("#step_img").attr('src', images[step])
     $("#expl").append(brew['explanations'][step])
 
     var tmr = brew['timer'][step]
     if (step == max_steps){
       $("#step_img").attr('src', '../static/images/coffee.jpg')
+      $("#nextBtn").attr('disabled', true)
       addRateBtn()
       tmr=0
     } else if (step <= 0) {

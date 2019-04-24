@@ -41,6 +41,8 @@
                 margin-right: auto;
                 margin-top: 15px;
                 margin-bottom:15px;
+                color: white;
+                font-size: 18px;
             }
             #p_bar {
                 width: 1%;
@@ -67,6 +69,21 @@
                 font-size: 18px;
                 font-weight: bold;
             }
+            .invisible {
+                display: none;
+            }
+            .title {
+                background-color:rgb(11, 11, 90);
+                color: white;
+                font-weight: bold;
+                font-size:20px;
+                /* text-align: center; */
+                padding: 25px;
+            }
+            .nav-item {
+                padding: 10px;
+                display: inline !important;
+            }
             *:before,
             *:after {
             -webkit-box-sizing: border-box;
@@ -83,7 +100,7 @@
             }
 
             a {
-            color: tomato;
+            /* color: tomato; */
             text-decoration: none;
             }
 
@@ -189,7 +206,6 @@
             font-size: 2.5em; /* Change the size of the stars */
             color: #ccc; /* Color on idle state */
             }
-
             /* Hover state of the stars */
             .rating-stars ul > li.star.hover > i.fa {
             color: #ffcc36;
@@ -199,8 +215,10 @@
             .rating-stars ul > li.star.selected > i.fa {
             color: #ff912c;
             }
-            .invisible {
-                display: none;
+            #steps {
+                font-weight: bold;
+                font-size: 24px;
+                color :#00816A;
             }
         </style>
         <script type="text/javascript">
@@ -211,8 +229,23 @@
     </head>
     <body>
         <div class="container-fluid" >
+  
+            <nav class="navbar title">
+					<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button> -->
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						  <span>Brew!</span>
+						<a class="nav-item active" href="/">Home</a>
+						<a class="nav-item " href="/wish_list">My Lists</a>
+					</div>
+				  </nav>
+
                 <form action="/wish_list" method="get" id="form1" align="right">
                     <button class= 'btn btn-primary'> View My Lists <span class='glyphicon glyphicon-list-alt'></span> </button></form>
+                    <form action="/" method="get" id="form1" align="right">
+                        <button class= 'btn btn-primary'> <span class='glyphicon glyphicon-home'></span> </button></form>
+        
         
                 <div id="progress">
                         <div id="p_bar"></div>
@@ -243,6 +276,7 @@
                           </li>
                         </ul>
                 </div>
+                
                 
 
 

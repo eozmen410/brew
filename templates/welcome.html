@@ -5,7 +5,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <!-- <link rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> -->
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> -->
+			
         <style>
         .homeBtn {
 			font-weight: bold;
@@ -37,14 +38,43 @@
 		.addBtn {
 			color: green;
 		}
+		.title {
+            background-color:rgb(11, 11, 90);
+            color: white;
+            font-weight: bold;
+            font-size:20px;
+            /* text-align: center; */
+            padding: 25px;
+        }
+		.nav-item {
+			padding: 10px;
+		}
         </style>
         <script type="text/javascript">
-            var data = {{data|tojson}}
+						var data = {{data|tojson}}
+						var wish_list = {{wish_list|tojson}}
         </script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'welcome.js') }}"></script>
     </head>
     <body>
     <div class="container-fluid" >
+
+			<!-- <div class="title"> Brew! </div> -->
+			<nav class="navbar title">
+					<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button> -->
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					  <div class="navbar-nav">
+						  <span>Brew!</span>
+						<a class="nav-item nav-link active" href="/">Home</a>
+						<a class="nav-item nav-link" href="/wish_list">My Lists</a>
+						<!-- <a class="nav-item nav-link" href="/add_item">Add Item</a> -->
+					
+					  </div>
+					</div>
+				  </nav>
+
 			<form action="/wish_list" method="get" id="form1" align="right">
 				<button class= 'btn btn-primary'> View My Lists <span class='glyphicon glyphicon-list-alt'></span> </button></form>
 	

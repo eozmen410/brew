@@ -5,6 +5,7 @@ $(document).ready(function(){
 })
 
 function loadButtons() {
+    $("#list").empty()
     Object.keys(data).forEach(function(key, value) {
         var name = key
         var row = $("<div>")
@@ -20,11 +21,27 @@ function loadButtons() {
         $(form).append(newConcept)
         
         $(row).append(form)
-        var addBtn = $('<button>Add To Wish List    <span class=\"addBtn glyphicon glyphicon-plus\"></span></button>')
-        $(addBtn).click(function(){
-            addToWishList(key)
-        })
-        $(row).append(addBtn)
+        var btn; 
+        if (wish_list.includes(key)) {
+            btn = $('<button>Remove   <span class=\"remBtn glyphicon glyphicon-minus\"></span></button>')
+            $(btn).click(function(){
+                removeWish(key)
+            })
+        } else {
+            btn = $('<button>Add To Wish List    <span class=\"addBtn glyphicon glyphicon-plus\"></span></button>')
+            $(btn).click(function(){
+                addToWishList(key)
+    
+            })
+        }
+
+        // var addBtn = $('<button>Add To Wish List    <span class=\"addBtn glyphicon glyphicon-plus\"></span></button>')
+        // $(addBtn).attr('id', "btn_"+key.splice(' ').join('_'))
+        // $(addBtn).click(function(){
+        //     addToWishList(key)
+
+        // })
+        $(row).append(btn)
 		
         $("#list").append(row)
     })
@@ -40,6 +57,42 @@ function addToWishList(brew_m) {
         success: function(result){
             wish_list= result['wish_list']
             console.log(wish_list)
+            // var btn = $("#btn_"+brew_m.splice(' ').join('_'))
+            // makeRemove(btn, brew_m)
+            loadButtons()
+        },
+        error: function(request, status, error){
+            console.log("Error");
+            console.log(request)
+            console.log(status)
+            console.log(error)
+        }
+    })
+}
+
+function makeRemove(btn) {
+    $(btn).html("Remove   <span class=\"remBtn glyphicon glyphicon-minus\"></span>")
+    $(btn).click(function(){
+        removeWish(brew_m)
+    })
+}
+//var rmvBtn = $('<button>Remove   <span class=\"remBtn glyphicon glyphicon-minus\"></span></button>')
+  
+function makeAdd(btn) {
+
+}
+function removeWish(brew_m) {
+    $.ajax({
+        type: 'POST',
+        url: 'remove_wish',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(brew_m),
+        success: function(result){
+            wish_list= result['wish_list']
+            console.log(wish_list)
+            loadButtons()
+            
         },
         error: function(request, status, error){
             console.log("Error");

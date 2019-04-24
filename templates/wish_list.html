@@ -51,6 +51,17 @@
 			background-color: lightyellow;
 			cursor: move;
 		}
+		.title {
+            background-color:rgb(11, 11, 90);
+            color: white;
+            font-weight: bold;
+            font-size:20px;
+            /* text-align: center; */
+            padding: 25px;
+        }
+		.nav-item {
+			padding: 10px;
+		}
         </style>
         <script type="text/javascript">
             var wish_list = {{wish_list|tojson}}
@@ -61,7 +72,24 @@
     </head>
     <body>
     <div class="container-fluid" >
-            
+			<nav class="navbar title">
+					<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button> -->
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					  <div class="navbar-nav">
+						  <span>Brew!</span>
+						<a class="nav-item nav-link active" href="/">Home</a>
+						<a class="nav-item nav-link" href="/wish_list">My Lists</a>
+						<!-- <a class="nav-item nav-link" href="/add_item">Add Item</a> -->
+					
+					  </div>
+					</div>
+				  </nav>
+
+		<form action="/" method="get" id="form1" align="right">
+			<button class= 'btn btn-primary'> <span class='glyphicon glyphicon-home'></span> </button></form>
+
         <div class= "row">
             <div class="col-md-1"></div>
             <div class="col-md-5" ><h3>My Wish List</h3><br> Click on the item to start brewing!<div id="wish_list"></div></div>
