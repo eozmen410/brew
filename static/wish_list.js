@@ -59,7 +59,7 @@ function loadDone(){
         
         $(row).append(form)
         var rating = done_list[i]['rating']
-        $(row).append("Your rating:" + rating + '/5')
+        $(row).append("Your rating:" + rating + '%')
         $("#done_list").append(row)
     }
 }

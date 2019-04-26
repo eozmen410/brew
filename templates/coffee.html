@@ -257,7 +257,11 @@
 
                 <div id="expl"></div>
                 <div class='rating-stars text-center invisible' id="stardiv">
-                    Rate your experience to add this brewing method to your Tried & Rated list!
+
+                <form action="/quiz/{{choice}}" method="get" id="form1">
+                    <button class= 'btn btn-warning'> Take the Quiz! <span class='glyphicon glyphicon-list-alt'></span> </button></form>
+            
+                    <!-- Rate your experience to add this brewing method to your Tried & Rated list!
                         <ul id='stars'>
                           <li class='star' title='Poor' data-value='1'>
                             <i class='fa fa-star fa-fw'></i>
@@ -274,7 +278,7 @@
                           <li class='star' title='WOW!!!' data-value='5'>
                             <i class='fa fa-star fa-fw'></i>
                           </li>
-                        </ul>
+                        </ul> -->
                 </div>
                 
                 

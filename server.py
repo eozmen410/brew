@@ -12,7 +12,7 @@ coffee_data = {
         "images" :["../static/images/aeropress1.jpg","../static/images/aeropress2.jpg","../static/images/aeropress3.jpg","../static/images/aeropress4.jpg","../static/images/aeropress5.jpg","../static/images/aeropress6.jpg","../static/images/aeropress7.jpg","../static/images/aeropress8.jpg","../static/images/aeropress9.jpg","../static/images/aeropress10.jpg"],
         "nb_steps" : 10,
         "timer" : [0,0,0,0,0,0,0.5,1,0,0,0,0],
-        "explanations" : ["Bring 7 oz (200 g) of water to a boil. Weigh out 15–18 grams of coffee (depending on your preferred strength). Grind to a texture slightly finer than sea salt.","Insert a paper filter into the AeroPress's detachable plastic cap.","Use some of your hot water to wet your filter and cap. The water serves a dual function here: It helps the filter adhere to the cap, and heats your brewing vessel. This can be challenging as the water is hot and the cap is quite small: Hold the cap by its “ears” and pour the water very slowly so it can be absorbed by the filter.","Assemble your AeroPress. Make sure the entire assembly is dry, since any residual moisture can compromise the device’s seal.","Place it on your scale with the flared end up, then tare the weight. The numbers should appear upside-down. It’s possible to attach the black filter cap and place it right side-up, but this tends to cause leakage and make accurate brewing difficult.","Add your ground coffee. Be careful not to spill any grounds into the ring-shaped gutter at the top of the AeroPress.","Add twice the weight of water than you have grounds (e.g., for 15 grams coffee, add 30 grams water). The water should be about 200 degrees F. \n Start the timer!Make sure the coffee is saturated evenly, tamping slightly with the paddle or butter knife if necessary, and let it sit for 30 seconds.", "Use the remainder of the hot water to fill the chamber.After a minute has elapsed, stir grounds 10 times to agitate.","Fasten the cap, ensuring it locks into the grooves tightly. Flip the whole assembly over with haste and control. Position it atop your brew vessel and begin applying downward pressure. You will experience about 30 pounds of resistance here. If the pushing feels too easy, your grind is likely too coarse; if it’s very hard to push, chances are the grind is too fine. Your coffee is fully brewed once it begins to make a hissing sound. This means there is no more water to push through the device.","Once you’ve unscrewed the cap, you can pop out the filter and the puck of condensed grounds by simply pushing AeroPress’s interior section a final inch."]
+        "explanations" : ["Bring 7 oz (200 g) of water to a boil. Weigh out 15–18 grams of coffee (depending on your preferred strength). Grind to a texture slightly finer than sea salt.","Insert a paper filter into the AeroPress's detachable plastic cap.","Use some of your hot water to wet your filter and cap. The water serves a dual function here: It helps the filter adhere to the cap, and heats your brewing vessel. This can be challenging as the water is hot and the cap is quite small: Hold the cap by its “ears” and pour the water very slowly so it can be absorbed by the filter.","Assemble your AeroPress. Make sure the entire assembly is dry, since any residual moisture can compromise the device’s seal.","Place it on your scale with the flared end up, then tare the weight. The numbers should appear upside-down. It’s possible to attach the black filter cap and place it right side-up, but this tends to cause leakage and make accurate brewing difficult.","Add your ground coffee. Be careful not to spill any grounds into the ring-shaped gutter at the top of the AeroPress.","Add twice the weight of water than you have grounds (e.g., for 15 grams coffee, add 30 grams water). The water should be about 200 degrees F. Start the timer!Make sure the coffee is saturated evenly, tamping slightly with the paddle or butter knife if necessary, and let it sit for 30 seconds.", "Use the remainder of the hot water to fill the chamber.After a minute has elapsed, stir grounds 10 times to agitate.","Fasten the cap, ensuring it locks into the grooves tightly. Flip the whole assembly over with haste and control. Position it atop your brew vessel and begin applying downward pressure. You will experience about 30 pounds of resistance here. If the pushing feels too easy, your grind is likely too coarse; if it’s very hard to push, chances are the grind is too fine. Your coffee is fully brewed once it begins to make a hissing sound. This means there is no more water to push through the device.","Once you’ve unscrewed the cap, you can pop out the filter and the puck of condensed grounds by simply pushing AeroPress’s interior section a final inch."]
     },
     "Chemex": {
         "name": "Chemex",
@@ -39,7 +39,8 @@ coffee_data = {
         "name" : "French Press",
         "images": ["../static/images/french1.jpg","../static/images/french2.jpg","../static/images/french3.jpg","../static/images/french4.jpg"],
         "nb_steps" : 4,
-        "timer" : [0,0.1,2,0,0,0]
+        "timer" : [0,1,0.5,4],
+        "explanations" : ["Bring enough water to fill the French press to a boil. For a 17-oz press, you'll need about 350 grams (12 ounces)\nWhile the water is heating, grind your coffee. French press coffee calls for a coarse, even grind. We recommend starting with a 1:12 coffee-to-water ratio. If you're using 350 grams of water, you’ll want 30 grams of coffee.","To start, gently pour twice the amount of water than you have coffee onto your grounds. For example, if you have 30 grams of coffee, you’ll want to start with 60 grams of water.","Give the grounds a gentle stir with a bamboo paddle or chopstick. Allow the coffee to bloom for 30 seconds.", "Pour the remaining water and place the lid gently on top of the grounds. Don’t plunge just yet. Let the coffee steep for four minutes. Four. Don’t guess."]
     },
     "Siphon": {
         "name":"Siphon",
@@ -66,7 +67,7 @@ def home():
 def coffee(selected):
     global coffee_data
     choice = coffee_data[selected]
-    return render_template("coffee.html", data=coffee_data, brew=choice)
+    return render_template("coffee.html", data=coffee_data, brew=choice, choice = selected)
 
 @app.route('/add_wish', methods=['POST'])
 def add_wish():
@@ -96,6 +97,12 @@ def wishList():
     global coffee_data
     global wish_list
     return render_template("wish_list.html", data=coffee_data, wish_list=wish_list, done_list=done_list)
+
+@app.route('/quiz/<select>')
+def makeQuiz(select):
+    global coffee_data
+    choice = coffee_data[select]
+    return render_template("quiz.html", data=coffee_data, brew=choice)
 
 if __name__ == '__main__':
 	app.run(debug = True)

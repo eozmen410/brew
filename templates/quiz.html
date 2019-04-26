@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+            <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <style>
+            .dragging {
+			background-color: yellow;
+			cursor: move;
+			z-index: 10000;
+		}
+            
+            #p_bar {
+                width: 1%;
+                height: 30px;
+                background-color: green;    
+            }
+            #step_img{
+                max-width: 600px;
+                max-height: 600px;
+                margin-right: auto;
+                margin-left: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+            .invisible {
+                display: none;
+            }
+            .title {
+                background-color:rgb(11, 11, 90);
+                color: white;
+                font-weight: bold;
+                font-size:20px;
+                /* text-align: center; */
+                padding: 25px;
+            }
+            .nav-item {
+                padding: 10px;
+                display: inline !important;
+            }
+            #steps {
+                font-weight: bold;
+                font-size: 24px;
+                color :#00816A;
+            }
+            .image {
+					display: inline-block;
+					max-width: 150px;
+					max-height: 150px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    
+				}
+				.name {
+						display:block;
+						font-weight: bold;
+						font-size: 18px;
+						width: 80%;
+						color: darkblue;
+				}
+                .item {
+					border: 1px solid lightgrey;
+        	        padding: 10px;
+                    width: 200px;
+                    height: 200px;
+                    margin-left: auto;
+                    margin-right: auto;
+				}
+                .drag-drop {
+                    height: 500px;
+                }
+        </style>
+        <script type="text/javascript">
+            var data = {{data|tojson}}
+            var brew = {{brew|tojson}}
+        </script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+    </head>
+    <body>
+        <div class="container-fluid" >
+  
+            <nav class="navbar title">
+					<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button> -->
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						  <span>Brew!</span>
+						<a class="nav-item active" href="/">Home</a>
+						<a class="nav-item " href="/wish_list">My Lists</a>
+					</div>
+				  </nav>
+
+          <div class="row">
+        <div id="drag-div" class="col-md-6 drag-drop"> </div>
+        <div id="drop-div" class="col-md-6 drag-drop">  </div>
+        </div>
+    </div>
+        <button id="check_btn" class="btn btn-success">Check Answers!</button> 
+       
+    </div>
+
+    </body>
+</html>
