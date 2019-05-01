@@ -30,7 +30,7 @@ function loadWish() {
 		$(form).attr('method', 'get')
         $(form).data('value', data[name])
         
-        var newConcept= $("<button class='btn btn-dark wlist-btns'>")
+        var newConcept= $("<button class='btn btn-success wlist-btns'>")
         $(newConcept).html('View Instructions')
         $(form).append(newConcept)
         $(col2).append(form)
@@ -41,14 +41,14 @@ function loadWish() {
 		$(qform).attr('action','/quiz/' + name)
 		$(qform).attr('method', 'get')
         $(qform).data('value', data[name])
-        var quizbtn = $("<button class='btn btn-dark wlist-btns'>")
-        $(quizbtn).html('Take Quiz!')
+        var quizbtn = $("<button class='btn btn-warning wlist-btns'>")
+        $(quizbtn).html('Take the Quiz!')
         $(qform).append(quizbtn)
         $(col2).append(qform)
 
 
         
-        var rmvBtn = $('<button class=\"wlist-btns btn btn-dark\">Remove   <span class=\"remBtn glyphicon glyphicon-minus \"></span></button>')
+        var rmvBtn = $('<button class=\"remBtn wlist-btns btn btn-danger\">Remove   <span class=\"remBtn glyphicon glyphicon-minus \"></span></button>')
         $(rmvBtn).data('value', name)
         $(rmvBtn).click(function(){
             removeWish($(this).data('value'))
@@ -97,6 +97,7 @@ function loadDone(){
         $(quizbtn).html('Retake Quiz!')
         $(qform).append(quizbtn)
         $(col2).append(qform)
+        $(col2).append(form)
         var rating = parseInt(done_list[i]['rating'])
     
         $(col1).append("Your score: " + rating + '%')

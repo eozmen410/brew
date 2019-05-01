@@ -29,15 +29,14 @@ function loadButtons() {
 
         var btn; 
         if (wish_list.includes(key)) {
-            btn = $('<button class=\"btn btn-dark remBtn\"> <span class=\" glyphicon glyphicon-minus\"></span></button>')
+            btn = $('<button class=\"btn btn-danger\"> <span class=\" glyphicon glyphicon-minus\"></span></button>')
             $(btn).click(function(){
                 removeWish(key)
             })
         } else {
-            btn = $('<button class=\"btn btn-dark addBtn\"> <span class=\" glyphicon glyphicon-plus\"></span></button>')
+            btn = $('<button class=\"btn btn-success\"> <span class=\" glyphicon glyphicon-plus\"></span></button>')
             $(btn).click(function(){
                 addToWishList(key)
-    
             })
         }
         $(row).append(col)

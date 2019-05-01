@@ -99,7 +99,14 @@ def add_done():
     global coffee_data
     global wish_list
     adding = request.get_json()
-    done_list.append(adding)
+    add = False
+    for x in done_list:
+        if x['brew']['name'] == adding['brew']['name']:
+            x['rating'] = adding['rating']
+            add = True
+            break
+    if(not add):
+        done_list.append(adding)
     if adding['brew']['name'] in wish_list:
         wish_list.remove(adding['brew']['name'])
     return jsonify(done_list=done_list)

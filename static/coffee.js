@@ -48,8 +48,11 @@ var step = 0
 // var brew = data['AeroPress']
 var images = brew['images']
 var max_steps = brew['nb_steps']
-$(document).ready(function(){
 
+
+$(document).ready(function(){
+  $("#method").html(brew['name'])
+  $("#lvl").html("Skill Level: " + brew['lvl'])
     console.log('ready')
     console.log(data)
     $("#timer_start").click(function(){
@@ -154,7 +157,7 @@ function updateStep() {
     // $("#step_img").attr('src', images[step])
     console.log(step)
     $("#expl").empty()
-    $("#steps").html("Step "+ (step+1))
+    $("#steps").html("Step "+ (step+1) + " / " + ( max_steps+1))
     // $("#progress").html((step+1)%max_steps *100 + "%")
     $("#step_img").attr('src', images[step])
     $("#expl").append(brew['explanations'][step])
