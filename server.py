@@ -82,8 +82,11 @@ def add_wish():
 def add_done():
     global done_list
     global coffee_data
+    global wish_list
     adding = request.get_json()
     done_list.append(adding)
+    if adding['brew']['name'] in wish_list:
+        wish_list.remove(adding['brew']['name'])
     return jsonify(done_list=done_list)
 
 @app.route('/remove_wish', methods=['POST'])
