@@ -76,7 +76,9 @@
           margin-bottom:15px;
 					border-radius: 15px;
 				}
-		
+				#form1 {
+					margin:10px;
+				}
         </style>
         <script type="text/javascript">
             var wish_list = {{wish_list|tojson}}
@@ -84,7 +86,7 @@
             var done_list = {{done_list|tojson}}
         </script>
         <script type="text/javascript" src="{{ url_for('static', filename = 'wish_list.js') }}"></script>
-			
+				<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 			</head>
     <body>
     <div class="container-fluid" >
@@ -108,7 +110,11 @@
 
         <div class= "row">
             <div class="col-md-1"></div>
-            <div class="col-md-5" ><h3>My Wish List</h3><div id="wish_list"></div></div>
+						<div class="col-md-5" > <h3 >My Wish List</h3>   
+							<div id="wish_list"></div>
+							<form action="/" method="get" id="form1" align="right">
+								<button class= 'btn btn-dark'>See All Methods <span class='glyphicon glyphicon-home'></span> </button></form> 
+							</div>
             <div class="col-md-5"><h3>Learned & Tested </h3><div id="done_list">
 							
 						</div>

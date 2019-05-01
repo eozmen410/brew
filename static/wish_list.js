@@ -30,7 +30,7 @@ function loadWish() {
 		$(form).attr('method', 'get')
         $(form).data('value', data[name])
         
-        var newConcept= $("<button class='btn btn-success wlist-btns'>")
+        var newConcept= $("<button class='btn btn-info wlist-btns'>")
         $(newConcept).html('View Instructions')
         $(form).append(newConcept)
         $(col2).append(form)
@@ -82,7 +82,7 @@ function loadDone(){
 		$(form).attr('method', 'get')
         $(form).data('value', data[name])
         
-        var newConcept= $("<button class='btn btn-dark wlist-btns'>")
+        var newConcept= $("<button class='btn btn-info wlist-btns'>")
         $(newConcept).html('View Instructions')
         $(form).append(newConcept)
         
@@ -93,7 +93,7 @@ function loadDone(){
 		$(qform).attr('action','/quiz/' + name)
 		$(qform).attr('method', 'get')
         $(qform).data('value', data[name])
-        var quizbtn = $("<button class='btn btn-dark wlist-btns'>")
+        var quizbtn = $("<button class='btn btn-warning wlist-btns'>")
         $(quizbtn).html('Retake Quiz!')
         $(qform).append(quizbtn)
         $(col2).append(qform)

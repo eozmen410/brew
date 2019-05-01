@@ -7,6 +7,17 @@ app = Flask(__name__)
 
 
 coffee_data = {
+    "Coffee Machine" : {
+        "name" : "Coffee Machine",
+        "images" : ["../static/images/cm1.jpg","../static/images/cm2.jpg"],
+        "nb_steps" : 2,
+        "timer" : [0,0],
+        "time" : "~3-4 minutes",
+        "lvl" : "Simple",
+        "background" : "By our own standards, we still think a handmade cup of coffee will always be more special, but sometimes, we all feel the need to press a button and let the gentle hum of modernity ease our busy, bothered minds. The first automatic drip brewer was patented in the 1950s and has since become a fixture in hotel rooms, break rooms, and the kitchens of coffee connoisseurs and novices alike. An envelope of Blue Bottle Perfectly Ground—with the right amount of fresh coffee at the right grind—will give you a more delicious cup without sacrificing any of the convenience.",
+        "materials" : ["Grounded Coffee","Automatic Coffee Maker", "Coffee Maker Filter", "Measuring cup or gram scale"],
+        "explanations" : ["Pour 1½ cups (350 g) of cold water into the coffee maker reservoir.\n Place filter in coffee maker basket. ", "Pour grounded coffee onto filter. \n Turn on coffee maker, wait until the water boils and the coffee container is full.", "Enjoy your coffee!"]
+    },
     "AeroPress" : {
         "name": "AeroPress",
         "images" :["../static/images/aeropress1.jpg","../static/images/aeropress2.jpg","../static/images/aeropress3.jpg","../static/images/aeropress4.jpg","../static/images/aeropress5.jpg","../static/images/aeropress6.jpg","../static/images/aeropress7.jpg","../static/images/aeropress8.jpg","../static/images/aeropress9.jpg","../static/images/aeropress10.jpg"],
@@ -36,16 +47,21 @@ coffee_data = {
         "time" : "12 hours",
         "timer" : [0,0,0,0,0,0,0,0,0,0,0,0],
         "lvl" : "Advanced",
+        "background" : "Like surprise parties and camping trips, cold brew is a planner’s dream. With a bit of foresight and some basic instructions, the Filtron method is the most reliable and delicious way to achieve a single origin iced coffee at home. Set your stopwatch for a 12-hour countdown and you’ll be generously rewarded—a crystalline, concentrated brew, with plenty of zing, is your prize.",
+        "materials" : ["Bamboo paddle or butter knife", "Filtron set", "Grinder", "Scale", "Stainless Steel Bowl"],
         "explanations": ["Measure out 2,000 grams (two liters) of water.", "Place the Filtron’s rubber cap in the hole at the bottom of the device.","Wet the wool filter and place it in the circular groove at the bottom of the Filtron. You’ll want to make sure this is in evenly; otherwise, the extraction may be subpar.", "Unfold your filter and place it in the Filtron. It will be a slightly loose fit. Secure it evenly and fold where necessary.","Weigh out one pound (454 grams) of coffee.","Grind the coffee finely into a large nonreactive bowl.","Add your coffee to the Filtron, then give it a few shakes to level the bed.","Pour your water over the grounds—gradually and carefully—in a series of concentric circles.","Submerge the grounds with a butter knife or bamboo paddle.", "Place the plastic disc filter on top of the filter, then place the plastic top component on top of that. Let steep for 12 hours.","Here’s where you’ll need a friend. Carefully position the Filtron over your carafe and swiftly pull out the rubber stopper. Often, you have a couple of seconds before the flow of coffee begins."]
     }
     ,
     "Espresso" : {
         "name": "Espresso",
-        "images": ["../static/images/esp1.jpg","../static/images/espr2.jpg","../static/images/espr3.jpg","../static/images/espr4.jpg","../static/images/espr5.jpg","../static/images/espr6.jpg","../static/images/espr7.jpg"],
+        "images": ["../static/images/espr1.jpg","../static/images/espr2.jpg","../static/images/espr3.jpg","../static/images/espr4.jpg","../static/images/espr5.jpg","../static/images/espr6.jpg","../static/images/espr7.jpg"],
         "nb_steps" : 7,
         "time": "25-30 seconds",
-        "timer" : [0,0.1,2,0,0,0,0,0,0],
-        "lvl" : "Simple"
+        "timer" : [0,0,0,0,0,0,0.5,0],
+        "lvl" : "Intermediate",
+        "background" : "Here’s the unfortunate truth: Skimping on a home espresso machine is like skydiving with a threadbare parachute—a precarious endeavor, barely tinged with optimism. We speak with the stains of many subpar espresso shots on our hands: It’s a finicky business. But once you have your tools in order, the path becomes clearer, and the challenge becomes about patience and practice. You could spend a lifetime trying to achieve the perfect shot. (And well, we have). When you glimpse it, you’ll have brushed with balance, viscosity, sweetness, and depth in sublime harmony.",
+        "materials" : ["Espresso machine", "Demitasse", "Double basket, botomless portafilter", "Grinder", "Scale", "Tamper", "Timer"],
+        "explanations" : ["Remove your portafilter from the espresso machine’s grouphead. Place it on a scale and tare the weight.","Purge your grouphead thoroughly with hot water.","For a double shot, grind between 18–21 grams of coffee into your basket. The proper grind is crucial to a balanced, delicious shot of espresso. It might be necessary to adjust its fineness a bit. In general, the grind ought to be quite fine.","Distribute the coffee by drawing a finger across it in a series of alternating swipes. It is most effective to alternate sides in a series of 90 degree increments (top to bottom, then left to right, and so on).", "Place your portafilter on a clean, flat surface and position your tamper level on top of the grounds. Without driving your palm into the tamper’s base (which can cause gnarly wrist problems down the line), apply pressure downward. You don’t need to tamp incredibly hard—just enough to seal the coffee in evenly. Twenty to 30 pounds of pressure should do it. Give the tamper a gentle spin. This will smooth, or “polish,” the grounds for an even extraction.","Position the portafilter in the grouphead and start your shot. We recommend pulling it into a pre-heated ceramic demitasse.", "The shot should start with a slow drip, then develop into a gentle, even stream. Near the 30 second mark, the extraction will end, causing the shot to thicken and start “blonding,” or turning yellow. Stop the shot just as this process begins. \n Some people like to stir a shot after it’s been pulled; some like to sip immediately in order to experience its many layers of flavor. This is up to you. We serve it with a sparkling water back."]
     },
     "French Press": {
         "name" : "French Press",
@@ -63,17 +79,23 @@ coffee_data = {
         "images" :["../static/images/siphon1.jpg","../static/images/siphon2.jpg","../static/images/siphon3.jpg","../static/images/siphon4.jpg","../static/images/siphon5.jpg","../static/images/siphon6.jpg","../static/images/siphon7.jpg","../static/images/siphon8.jpg","../static/images/siphon9.jpg","../static/images/siphon10.jpg"],
         "nb_steps" : 10,
         "time" : "2-2.5 minutes",
-        "timer" : [0,0.1,2,0,0,0,0,0,0,0,0],
-        "lvl" : "Advanced"
+        "timer" : [0,0,0,0,0,0,0,0.5,0,0,0],
+        "lvl" : "Advanced",
+        "background" : "Siphon coffee was invented in the 1840s more or less simultaneously by a French housewife and Scottish marine engineer. It’s been refined many times, but a few principles hold true: It produces a delicate, tea-like cup of coffee; it can be quite persnickety; and it is, for our money, one of the coolest brew methods available.",
+        "materials" : ["Grinder", "Scale", "Siphon set", "Thermometer", "Timer", "20-25 grams of coffee"],
+        "explanations" : ["After soaking your filter in a warm water bath for at least five minutes, drop it into the bottom of your siphon’s top component, or “hopper,” and hook to the bottom of the hopper’s glass tubing.","Fill your siphon’s bottom component, or “bulb,” with 300 grams of hot water (about a 12-oz. cup’s worth).", "Insert the hopper, filter and all, into the bulb. You don't have to press too hard; just make sure it's securely and evenly in place. Position the entire assembly above your heat source.","While the water is heating, measure out between 20-25 grams of coffee and grind it just little bit finer than you would for regular drip coffee.","Soon, the water in the bulb will begin boiling and rise up into the hopper. For some physics-related reason we don’t fully understand, a little bit will stay in the bottom. Don’t worry about this little bit.","Once the water has moved into the hopper, turn your heat source down so that the water is between 185-195 degrees F.","Add your coffee, and gently (but thoroughly) submerge it with a bamboo paddle or butter knife.","Let the coffee brew, undisturbed, for one minute and 10 seconds.", "In one brisk motion, remove your siphon from its heat source and give it ten stirs with a bamboo paddle.","Your coffee should take another minute or so to draw downward and finally rest in the bulb. You'll know it's ready when a dome of grounds has formed at the top of the filter, and when the coffee at the bottom has begun to bubble at approximately the pace and strength of a kitten’s heartbeat.\nRemove the hopper and serve. In order to guarantee the most complex cup, give the coffee a few minutes to cool."]
 
     },
     "New Orleans Iced Coffee": {
         "name": "New Orleans Iced Coffee",
-        "images": ["../static/images/no1.jpg","../static/images/no2.jpg","../static/images/no3.jpg","../static/images/no4.jpg","../static/images/no5.jpg","../static/images/no6.jpg","../static/images/no7.jpg"],
+        "images": ["../static/images/no1.jpg","../static/images/no2.jpg","../static/images/no3.jpg","../static/images/no5.jpg","../static/images/no6.jpg","../static/images/no7.jpg", "../static/images/no8.jpg", "../static/images/no11.jpg"],
         "nb_steps" : 7,
         "time" : "12 hours",
-        "timer" : [0,0.1,2,0,0,0,0,0,0],
-        "lvl": "Advanced"
+        "timer" : [0,0,0,0,0,0,0,0,0],
+        "lvl": "Advanced",
+        "background" : "Initially conceived as an alternative to the erratically composed and often disappointing iced latte, our New Orleans-style Iced Coffee is cold-brewed for 12 hours with roasted chicory and sweetened with organic cane sugar. The end result is a potent concentrate that we cut with organic whole milk. It's sweet, creamy, and consistently delicious.",
+        "materials" : ["Simple syrup","4 qt nonreactive stockpot","Wooden spoon", "Fine-meshed sieve","2 qt jar", "Grinder", "Scale", "Milk, cream or dairy alternative"],
+        "explanations" : ["Grind 12 oz / 340 g of whole bean coffee on a coarse setting. Coffee grounds should be gritty and the particles should be easy to distinguish from one another.", "Add the coffee and 1 oz / 28 g of roasted chicory to the stockpot.","Pour 2 qt / 2 L of filtered water into the stockpot. Stir with a wooden spoon until the grounds are fully saturated.","Cover the stockpot, and steep the coffee and chicory for 12 hours at room temperature.","After 12 hours, pour the concentrate, which will be thick and viscous, through a fine-meshed sieve into the jar.","Add 4 tablespoons / 68 g of simple syrup (made from 3 tablespoons each of sugar and water heated until dissolved) to the coffee concentrate. Stir until syrup is incorporated.","Alternatively: Add just enough simple syrup to each serving to sweeten."]
     }
 }
 
@@ -83,6 +105,11 @@ done_list =[]
 def home():
     global coffee_data
     return render_template("welcome.html", data=coffee_data, wish_list=wish_list)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/coffee/<selected>', methods=['GET', 'POST'])
 def coffee(selected):

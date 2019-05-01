@@ -86,7 +86,8 @@
         <script type="text/javascript">
 						var data = {{data|tojson}}
 						var wish_list = {{wish_list|tojson}}
-        </script>
+				</script>
+				<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <script type="text/javascript" src="{{ url_for('static', filename = 'welcome.js') }}"></script>
     </head>
     <body>
