@@ -20,7 +20,8 @@ function loadButtons() {
         $(img).attr('src', data[key]['images'][data[key]['images'].length-1])
         $(row).append(img)
         var col = $("<div class='col-md-7'>")
-        var name = $("<a href='coffee/"+key+"' class='name'>")
+        var name = $("<a href='outline/"+key+"' class='name'>")
+        // console.log(name)
         $(name).html(key)
         $(col).append(name)
         

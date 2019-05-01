@@ -67,7 +67,7 @@ function populate(arr) {
 
 
         //make droppable
-        var drow = $("<div>")
+        var drow = $("<div id='"+i+"'>")
         $(drow).addClass('row item')
         $(drow).append("<span class='steps'>"+(i+1)+"</span>")
         $(drow).append("<img class='image' id='"+i+"_image'>")
@@ -96,7 +96,9 @@ function check(){
     for (var i=0; i< answers.length; i++) {
         if (answers[i]){
             score++;
-
+            $("#"+i).css('background-color','green')
+        } else {
+            $("#"+i).css('background-color','red')
         }
     }
     var score_p = (score/answers.length)*100

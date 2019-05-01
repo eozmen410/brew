@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> -->
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <style>
+            #step_img{
+                max-width: 600px;
+                max-height: 600px;
+                margin-right: auto;
+                margin-left: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+                text-align: center;
+                margin: 35px;
+                
+            }
+            #imgdiv {
+                display: block;
+                /* height: 600px;
+                width: 600px; */
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #expl {
+                /* background-color: #00816A; */
+                color: rgb(17, 93, 55);
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 35px;
+                width: 500px;
+            }
+            .invisible {
+                display: none;
+            }
+            .title {
+                background-color:rgb(11, 11, 90);
+                color: white;
+                font-weight: bold;
+                font-size:20px;
+                /* text-align: center; */
+                padding: 25px;
+            }
+            .nav-item {
+                padding: 10px;
+                display: inline !important;
+            }
+        
+            #steps {
+                font-weight: bold;
+                font-size: 24px;
+                color :#00816A;
+            }
+            #method {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 28px;
+                font-weight: bolder;
+                color:rgb(43, 85, 165);
+            }
+            #lvl {
+                color: grey;
+                font-size: 20px;
+                font-weight: bold;
+                margin-left:auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            #bck {
+                color: rgb(73, 71, 71);
+                font-size: 16px;
+            }
+            #mtr {
+                color: black;
+                font-size: 18px;
+            }
+        </style>
+        <script type="text/javascript">
+            var data = {{data|tojson}}
+            var brew ={{brew|tojson}}
+        </script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'outline.js') }}"></script>
+    </head>
+    <body>
+        <div class="container-fluid" >
+  
+            <nav class="navbar title">
+					<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button> -->
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						  <span>Brew!</span>
+						<a class="nav-item active" href="/">Home</a>
+						<a class="nav-item " href="/wish_list">My Lists</a>
+					</div>
+				  </nav>
+
+                <!-- <form action="/wish_list" method="get" id="form1" align="right">
+                    <button class= 'btn btn-primary'> View My Lists <span class='glyphicon glyphicon-list-alt'></span> </button></form>
+                    <form action="/" method="get" id="form1" align="right">
+                        <button class= 'btn btn-primary'> <span class='glyphicon glyphicon-home'></span> </button></form>
+        
+         -->
+         <div id="method" ></div> 
+        <div class="row">
+        <div id="imgdiv" class="col-md-6"> <img id="step_img"> </div>
+        <div  class="col-md-6">
+                <div id="expl">
+                        <h2>What You'll Need:</h2>
+                        <div id="mtr"></div>
+                    <h2>Background:</h2>
+                    <div id="bck"></div><br>
+                    
+
+
+                </div>
+                <form action="/coffee/{{choice}}" method="get" id="form1">
+                    <button class= 'btn btn-warning'> View Instructions <span class='glyphicon glyphicon-list-alt'></span> </button></form>
+
+        </div>
+    </div>
+        
+       
+    </div>
+
+    </body>
+</html>
