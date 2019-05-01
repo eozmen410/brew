@@ -21,7 +21,8 @@ function loadWish() {
         var m_name = $("<a href='coffee/"+name+"' class='name'>")
         $(m_name).html(name)
         $(col1).append(m_name)
-
+        $(col1).append("<div class='lvl'>Skill Level: "+ data[name]['lvl']+"</div>")
+        $(col1).append("<div class='time'>Brew Time: "+ data[name]['time']+"</div>")
         var col2 = $("<div class='col-md-3'>")
         var form = $("<form>")
         // $(form).css('display', 'inline')
@@ -53,14 +54,6 @@ function loadWish() {
             removeWish($(this).data('value'))
         })
         $(col2).append(rmvBtn)
-
-        // $(newConcept).hover(function() {
-        //     $( this ).addClass( "hover" );
-        //   }, function() {
-        //     $( this ).removeClass( "hover" );
-        //   }
-        // );
-		//svar rateBtn = $$('<button>Rate   <span class=\"remBtn glyphicon glyphicon-minus\"></span></button>')
         $(row).append(col1)
         $(row).append(col2)
         $("#wish_list").append(row)

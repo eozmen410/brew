@@ -8,17 +8,6 @@
 			href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> -->
 			
         <style>
-        .homeBtn {
-			font-weight: bold;
-			font-size: 16px;
-			padding: 15px;
-			width: 60%;
-			margin: 10px;
-			margin-left: auto;
-			margin-right: auto;
-			background-color:black;
-			color: white;
-		}
         .conceptItem {
     		text-align: center;
     		color: darkblue;
@@ -37,6 +26,13 @@
 		}
 		.addBtn {
 			color: green;
+			width: 150px;
+			font-weight: bold;
+		}
+		.remBtn {
+			color: red;
+			width: 150px;
+			font-weight: bold;
 		}
 		.title {
             background-color:rgb(11, 11, 90);
@@ -52,6 +48,8 @@
 				.item {
 					border: 1px solid lightgrey;
         	padding: 10px;
+					border-radius: 10px;
+					/* height: 150px; */
 				}
 				.image {
 					display: inline-block;
@@ -61,9 +59,28 @@
 				.name {
 						display:block;
 						font-weight: bold;
-						font-size: 18px;
+						font-size: 20px;
 						width: 80%;
 						color: darkblue;
+				}
+				.info {
+					font-size: 24px;
+					font-weight: bold;
+					color: rgb(76, 76, 179);
+				}
+				.instr {
+					font-size: 18px;
+					color: darkgray;
+				}
+				.time {
+					color: rgb(91, 91, 151);
+					font-size: 14px;
+					
+				}
+				.lvl {
+					color: black;
+					font-size: 16px;
+					/* font-weight: bold; */
 				}
         </style>
         <script type="text/javascript">
@@ -90,10 +107,14 @@
 					  </div>
 					</div>
 				  </nav>
-
+<!-- 
 			<form action="/wish_list" method="get" id="form1" align="right">
 				<button class= 'btn btn-primary'> View My Lists <span class='glyphicon glyphicon-list-alt'></span> </button></form>
-	
+	 -->
+	  <div class= "row" > 
+			<div class="info" align="center"> You have <span id ="count">0</span> method(s) on <a href='/wish_list'>your wish list</a> !</div>
+			<div class="instr" align="center"> Use the  + and - buttons to add and remove from your list.</div>
+		</div> <br>
         <div class= "row">
             <div class="col-md-3"></div>
             <div class="col-md-6" id='list'></div>

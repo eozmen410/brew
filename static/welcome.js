@@ -2,8 +2,11 @@ $(document).ready(function(){
     console.log('ready')
     console.log(data)
     loadButtons()
-    
+    updateCount(wish_list.length)
 })
+function updateCount(count) {
+    $("#count").html(count)
+}
 
 function loadButtons() {
     $("#list").empty()
@@ -20,50 +23,18 @@ function loadButtons() {
         var name = $("<a href='coffee/"+key+"' class='name'>")
         $(name).html(key)
         $(col).append(name)
-        // var form = $("<form>")
-        // $(form).css('display', 'inline')
-		// $(form).attr('action','/coffee/' + name)
-		// $(form).attr('method', 'get')
-        // $(form).attr('value', value)
-        // var newConcept= $("<button class='btn btn-dark homeBtn'>")
-        // $(newConcept).html(name)
-        // $(form).append(newConcept)
-        // $(row).append(form)
-
-
-
-
-        ///////////////////////////////////////////////////////////////
-        // var result_div = $("<div class='row result'>")
-        // var img = $("<img class='image col-md-5'>")
-        // $(img).attr('src', results[i]['image'])
-        // $(result_div).append(img)
-        // $(result_div).append("<br>")
-        // //image name member origin
-        // var col = $("<div class='col-md-7'>")
-        // var name = $("<a href='../view_item/"+results[i]['id']+"' class='name'>")
-        // $(name).html(results[i]['name'])
-        // $(col).append(name)
-        // // $(result_div).append("<br>")
-        // var members =$("<div class='info'>")
-        // $(members).append("<span class='label'>Members: </span>")
-        // $(members).append(results[i]['members'].toString())
-        // $(col).append(members)
-        // // $(result_div).append("<br>")
-        // var origin = $("<div class='origin'>")
-        // $(origin).html(results[i]['origin'])
-        // $(col).append(origin)
-        // $(result_div).append(col)
-        ////////////////////////////////////////////////////////////
+        
+        $(col).append("<div class='lvl'>Skill Level: "+ data[key]['lvl']+"</div>")
+        $(col).append("<div class='time'>Brew Time: "+ data[key]['time']+"</div>")
 
         var btn; 
         if (wish_list.includes(key)) {
-            btn = $('<button>Remove   <span class=\"remBtn glyphicon glyphicon-minus\"></span></button>')
+            btn = $('<button class=\"btn btn-dark remBtn\"> <span class=\" glyphicon glyphicon-minus\"></span></button>')
             $(btn).click(function(){
                 removeWish(key)
             })
         } else {
-            btn = $('<button>Add To Wish List    <span class=\"addBtn glyphicon glyphicon-plus\"></span></button>')
+            btn = $('<button class=\"btn btn-dark addBtn\"> <span class=\" glyphicon glyphicon-plus\"></span></button>')
             $(btn).click(function(){
                 addToWishList(key)
     
@@ -87,6 +58,7 @@ function addToWishList(brew_m) {
             wish_list= result['wish_list']
             console.log(wish_list)
             loadButtons()
+            updateCount(wish_list.length)
         },
         error: function(request, status, error){
             console.log("Error");
@@ -108,6 +80,7 @@ function removeWish(brew_m) {
             wish_list= result['wish_list']
             console.log(wish_list)
             loadButtons()
+            updateCount(wish_list.length)
         },
         error: function(request, status, error){
             console.log("Error");
