@@ -1,7 +1,7 @@
 $(document).ready(function(){
     console.log('ready')
     console.log(brew)
-    var shuffled = makeArray(brew['images'], brew['explanations'])
+    var shuffled = makeArray(brew['images'], brew['qs'])
     console.log(shuffled)
     shuffleArray(shuffled)
     populate(shuffled)
@@ -14,10 +14,10 @@ $(document).ready(function(){
 
 var answers = []
 
-function makeArray (images, expl) {
+function makeArray (images, qs) {
     var arr = []
     for (var i=0; i<images.length; i++){
-        var item = {'image': images[i], 'expl': expl[i], 'index': i}
+        var item = {'image': images[i], 'q': qs[i], 'index': i}
         arr.push(item)
     }
     return arr
@@ -40,29 +40,34 @@ function populate(arr) {
         //make droppable div
         var row = $("<div>")
         $(row).addClass('row item')
-        // var img = $("<img class='image col-md-5'>")
-        var img = $("<img class='image'>")
+        var img = $("<img class='image col-md-5'>")
+        // var img = $("<img class='image'>")
         $(img).attr('src', arr[i]['image'])
         $(row).append(img)
-        // var col = $("<div class='col-md-7'>")
-        // $(col).html(arr[i]['expl'])
-        // $(row).append(col)
+        var col = $("<div class='col-md-7'>")
+        $(col).html("<span class='steps'>" + arr[i]['q']+ "</span>")
+        $(row).append(col)
         
         $(row).data('value', arr[i]['index'])
         $(row).data('src', arr[i]['image'])
         $(row).draggable({
+            refreshPositions: true,
             drag: function(event, ui) {
                 $(this).addClass('dragging')
             },
             revert : function(event, ui) {
+                if (!event) {
                 $(this).removeClass('dragging');
+                $(this).removeClass('invisible')
+                } 
+                if (event) {
+                    $(this).addClass('invisible')
+                }
                return !event;
            },
-           stop: function(event, ui) {
-               $(this).removeClass('dragging');
-               $(this).addClass('invisible')
-           }
+           
         })
+        // $( ".selector" ).draggable( "option", "revert", "invalid" );
         $("#drag-div").append(row)
 
 
@@ -70,16 +75,22 @@ function populate(arr) {
         var drow = $("<div id='"+i+"'>")
         $(drow).addClass('row item')
         $(drow).append("<span class='steps'>"+(i+1)+"</span>")
-        $(drow).append("<img class='image' id='"+i+"_image'>")
+        // $(drow).append("<img class='image col-md-5' id='"+i+"_image'>")
         $(drow).data('i', i)
         $(drow).droppable({
             drop: function(event, ui){
+                // console.log(ui)
+                // $(ui.draggable).addClass('invisible')
                 var src = $(ui.draggable).data('src')
                 var index = $(ui.draggable).data('value')
                 console.log('dropped')
                 console.log(index)
                 var id_img = $(this).data('i')
-                $("#"+ id_img + "_image").attr('src', src)
+                // $("#"+ id_img + "_image").attr('src', src)
+                $(this).append("<img class='image col-md-5' src='"+src+"'>")
+                var col_d = $("<div class='col-md-6'>")
+                $(col_d).html("<span class='steps'>" + arr[id_img]['q']+ "</span>")
+                $(this).append(col_d)
                 if (index == id_img){
                     answers[id_img] = true
                 }
@@ -94,17 +105,20 @@ function check(){
     console.log(answers)
     var score = 0
     for (var i=0; i< answers.length; i++) {
+        $("#"+i).addClass('checked')
         if (answers[i]){
             score++;
-            $("#"+i).css('background-color','green')
+            $("#"+i).css('background-color','rgba(45, 179, 45, 0.63)')
         } else {
-            $("#"+i).css('background-color','red')
+            $("#"+i).css('background-color','rgba(223, 51, 51, 0.582)')
         }
     }
     var score_p = (score/answers.length)*100
     console.log(score_p)
-    saveRating(score_p)
-    $("#drop-div").prepend("You scored: " +score_p + "%")
+    saveRating(parseInt(score_p))
+    $("#score").empty()
+    $("#score").append("You scored: " +score_p + "%")
+    $("#score").append("<br><span class='bck-msg'>Go back to <a href='/wish_list'>your lists</a> to keep learning or to take different quizzes!</span>")
 }
 function saveRating(ratingValue) {
     console.log(ratingValue)

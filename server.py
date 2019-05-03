@@ -14,6 +14,7 @@ coffee_data = {
         "timer" : [0,0],
         "time" : "~3-4 minutes",
         "lvl" : "Simple",
+        "qs" : ["Pour water and place filter.", "Pour coffee onto filter.Turn on the coffee maker."],
         "background" : "By our own standards, we still think a handmade cup of coffee will always be more special, but sometimes, we all feel the need to press a button and let the gentle hum of modernity ease our busy, bothered minds. The first automatic drip brewer was patented in the 1950s and has since become a fixture in hotel rooms, break rooms, and the kitchens of coffee connoisseurs and novices alike. An envelope of Blue Bottle Perfectly Ground—with the right amount of fresh coffee at the right grind—will give you a more delicious cup without sacrificing any of the convenience.",
         "materials" : ["Grounded Coffee","Automatic Coffee Maker", "Coffee Maker Filter", "Measuring cup or gram scale"],
         "explanations" : ["Pour 1½ cups (350 g) of cold water into the coffee maker reservoir.\n Place filter in coffee maker basket. ", "Pour grounded coffee onto filter. \n Turn on coffee maker, wait until the water boils and the coffee container is full.", "Enjoy your coffee!"]
@@ -25,17 +26,19 @@ coffee_data = {
         "timer" : [0,0,0,0,0,0,0.5,1,0,0,0,0],
         "time": "1.5 minutes", 
         "lvl" : "Intermediate",
+        "qs" : ["Boil 200g of water. Weigh out 15-18 grams of coffee. Grind.", "Insert paper filter.", "Wet the filter with hot water.", "Assemble AeroPress", "Place AeroPress on your scale. Tare weight.", "Add coffee.", "Add hot water (2:1 water to coffee ratio). Let sit for 30 seconds.", "Fill the chamber. Stir 10 times.", "Flip AeroPress and apply downward pressure.", "Unscrew cap, pop out filter."],
         "background": "A space-age contraption with gravity-defying aspirations, the AeroPress was invented by Aerobie just 38 miles from our Oakland roastery. Aerobie is responsible for creating the long-flying “superdisc” that broke Guiness World Records when it soared 1,333 feet into the air. (Take that, frisbee!) The same mastery of aerodynamics comes into play here, with this peculiar and lovely device for brewing coffee.",
         "materials" : ["AeroPress", "AeroPress Filters", "AeroPress funnel", "Kettle", "Grinder", "Scale", "Timer", "Stirring tool", "Coffee cup or other container"],
         "explanations" : ["Bring 7 oz (200 g) of water to a boil. Weigh out 15–18 grams of coffee (depending on your preferred strength). Grind to a texture slightly finer than sea salt.","Insert a paper filter into the AeroPress's detachable plastic cap.","Use some of your hot water to wet your filter and cap. The water serves a dual function here: It helps the filter adhere to the cap, and heats your brewing vessel. This can be challenging as the water is hot and the cap is quite small: Hold the cap by its “ears” and pour the water very slowly so it can be absorbed by the filter.","Assemble your AeroPress. Make sure the entire assembly is dry, since any residual moisture can compromise the device’s seal.","Place it on your scale with the flared end up, then tare the weight. The numbers should appear upside-down. It’s possible to attach the black filter cap and place it right side-up, but this tends to cause leakage and make accurate brewing difficult.","Add your ground coffee. Be careful not to spill any grounds into the ring-shaped gutter at the top of the AeroPress.","Add twice the weight of water than you have grounds (e.g., for 15 grams coffee, add 30 grams water). The water should be about 200 degrees F. Start the timer!Make sure the coffee is saturated evenly, tamping slightly with the paddle or butter knife if necessary, and let it sit for 30 seconds.", "Use the remainder of the hot water to fill the chamber.After a minute has elapsed, stir grounds 10 times to agitate.","Fasten the cap, ensuring it locks into the grooves tightly. Flip the whole assembly over with haste and control. Position it atop your brew vessel and begin applying downward pressure. You will experience about 30 pounds of resistance here. If the pushing feels too easy, your grind is likely too coarse; if it’s very hard to push, chances are the grind is too fine. Your coffee is fully brewed once it begins to make a hissing sound. This means there is no more water to push through the device.","Once you’ve unscrewed the cap, you can pop out the filter and the puck of condensed grounds by simply pushing AeroPress’s interior section a final inch."]
     },
     "Chemex": {
         "name": "Chemex",
-        "images": ["../static/images/chemex1.jpg","../static/images/chemex2.jpg","../static/images/chemex3.jpg","../static/images/chemex4.jpg","../static/images/chemex5.jpg","../static/images/chemex6.jpg","../static/images/chemex7.jpg"],
+        "images": ["../static/images/aeropress1.jpg","../static/images/chemex2.jpg","../static/images/chemex3.jpg","../static/images/chemex4.jpg","../static/images/chemex5.jpg","../static/images/chemex6.jpg","../static/images/chemex7.jpg"],
         "nb_steps" : 7,
         "timer" : [0,0,0,0,0.9,0,0,0,0],
         "time": "3-4 minutes",
         "lvl" : "Intermediate",
+        "qs" : ["Weigh coffee.", "Unfold filter, place it in your Chemex.", "Saturate the filter with warm water. Discard water.", "Pour ground coffee into the filter.", "First of the 4 pours for 45-55 seconds.", "Pour about 200 grams of water in a circular pattern.", "Keep adding water in 200 gram increments." ],
         "background" : "Equal parts brilliance and common sense, the Chemex remains a staple in every coffee enthusiast's arsenal. Its design has endured, unchanged (wood handle, leather cord, tapered glass and all), since its invention in 1941 by Peter Schlumbohm. Schlumbohm’s designs were characterized as “a synthesis of logic and madness,” and we're inclined to agree. Coffee from a Chemex is very similar to that from a drip, but there’s more room for error. To guarantee the best results, grind your beans more coarsely than you would for a ceramic drip, and offer extra attention to the pour rate. This level of care yields a delicate and nuanced coffee, with plenty left over to share with friends.",
         "materials": ["Chemex carafe","Cehemx filters", "Kettle", "Grinder", "Digital Scale", "Timer"],
         "explanations" : ["The amount of coffee and water varies depending on the type of coffee you are brewing and your preferred strength. As a starting point, we recommend using 50 grams of coffee and 700 grams of water (about 25 ounces), and then adjust according to your taste. \n Weigh out the coffee and grind to a coarseness resembling sea salt.", "Unfold your filter and place it in your Chemex, ensuring that the triple-fold portion is facing the pour spout and lays across without obstructing it.","Fully saturate the filter and warm the vessel with hot water. Discard this water through the pour spout.","Pour your ground coffee into the filter and give it a gentle shake. This will flatten the bed, allowing for a more-even pour.","There will be four pours total, and this is the first.Starting at the bed’s center, gently pour twice the amount of water that you have coffee into your grounds (for example, 50 grams of water if you have 25 grams of coffee). Work your way gently outward, and avoid pouring down the sides of the filter. You’ll notice that adding this amount of water causes the coffee to expand, or “bloom.” Allow it to do so for 45–55 seconds. A solid bloom ensures even saturation.","Pour water in a circular pattern starting in the center. Spiral out toward the edge of the slurry before spiraling back toward the middle. Avoid pouring on the filter. Allow the water to drip through the grounds until the slurry drops 1 inch from the bottom of the filter. You should use about 200 grams of water for this pour.","Repeat the same pour pattern as in Step 6, adding water in 200-gram increments. Repeat once more, allowing the water to percolate through the grounds until the slurry drops 1 inch from the bottom of the filter before beginning the next pour.","Allow the water to drip through the grounds entirely. And enjoy your coffee!"]
@@ -47,6 +50,7 @@ coffee_data = {
         "time" : "12 hours",
         "timer" : [0,0,0,0,0,0,0,0,0,0,0,0],
         "lvl" : "Advanced",
+        "qs" : ["Measure 2 liters of water.", "Place Filtron's rubber cap.", "Wet the wool filter.", "Place filter in the Filtron.", "Weigh 454 grams of coffee.", "Grind coffee.", "Add coffee to the Filtron, shake to level the bed.", "Pour water in concentric circles.", "Submerge grounds with butter knife/bamboo paddle.", "Place plastic disc. Let steep for 12 hours", "Position Filtron over your carafe and pull out the subber stopper."],
         "background" : "Like surprise parties and camping trips, cold brew is a planner’s dream. With a bit of foresight and some basic instructions, the Filtron method is the most reliable and delicious way to achieve a single origin iced coffee at home. Set your stopwatch for a 12-hour countdown and you’ll be generously rewarded—a crystalline, concentrated brew, with plenty of zing, is your prize.",
         "materials" : ["Bamboo paddle or butter knife", "Filtron set", "Grinder", "Scale", "Stainless Steel Bowl"],
         "explanations": ["Measure out 2,000 grams (two liters) of water.", "Place the Filtron’s rubber cap in the hole at the bottom of the device.","Wet the wool filter and place it in the circular groove at the bottom of the Filtron. You’ll want to make sure this is in evenly; otherwise, the extraction may be subpar.", "Unfold your filter and place it in the Filtron. It will be a slightly loose fit. Secure it evenly and fold where necessary.","Weigh out one pound (454 grams) of coffee.","Grind the coffee finely into a large nonreactive bowl.","Add your coffee to the Filtron, then give it a few shakes to level the bed.","Pour your water over the grounds—gradually and carefully—in a series of concentric circles.","Submerge the grounds with a butter knife or bamboo paddle.", "Place the plastic disc filter on top of the filter, then place the plastic top component on top of that. Let steep for 12 hours.","Here’s where you’ll need a friend. Carefully position the Filtron over your carafe and swiftly pull out the rubber stopper. Often, you have a couple of seconds before the flow of coffee begins."]
@@ -59,6 +63,7 @@ coffee_data = {
         "time": "25-30 seconds",
         "timer" : [0,0,0,0,0,0,0.5,0],
         "lvl" : "Intermediate",
+        "qs" : ["Remove portafilter from the espresso machine. Tare weight.", "Purge your grouphead thoroughly with hot water.", "Grind your coffee.", "Distribute coffee by swiping.", "Place tamper level on top of the grounds and apply pressure downward.", "Position portafilter in the grouphead and start your shot.", "Stop the shot after the 30 second mark."],
         "background" : "Here’s the unfortunate truth: Skimping on a home espresso machine is like skydiving with a threadbare parachute—a precarious endeavor, barely tinged with optimism. We speak with the stains of many subpar espresso shots on our hands: It’s a finicky business. But once you have your tools in order, the path becomes clearer, and the challenge becomes about patience and practice. You could spend a lifetime trying to achieve the perfect shot. (And well, we have). When you glimpse it, you’ll have brushed with balance, viscosity, sweetness, and depth in sublime harmony.",
         "materials" : ["Espresso machine", "Demitasse", "Double basket, botomless portafilter", "Grinder", "Scale", "Tamper", "Timer"],
         "explanations" : ["Remove your portafilter from the espresso machine’s grouphead. Place it on a scale and tare the weight.","Purge your grouphead thoroughly with hot water.","For a double shot, grind between 18–21 grams of coffee into your basket. The proper grind is crucial to a balanced, delicious shot of espresso. It might be necessary to adjust its fineness a bit. In general, the grind ought to be quite fine.","Distribute the coffee by drawing a finger across it in a series of alternating swipes. It is most effective to alternate sides in a series of 90 degree increments (top to bottom, then left to right, and so on).", "Place your portafilter on a clean, flat surface and position your tamper level on top of the grounds. Without driving your palm into the tamper’s base (which can cause gnarly wrist problems down the line), apply pressure downward. You don’t need to tamp incredibly hard—just enough to seal the coffee in evenly. Twenty to 30 pounds of pressure should do it. Give the tamper a gentle spin. This will smooth, or “polish,” the grounds for an even extraction.","Position the portafilter in the grouphead and start your shot. We recommend pulling it into a pre-heated ceramic demitasse.", "The shot should start with a slow drip, then develop into a gentle, even stream. Near the 30 second mark, the extraction will end, causing the shot to thicken and start “blonding,” or turning yellow. Stop the shot just as this process begins. \n Some people like to stir a shot after it’s been pulled; some like to sip immediately in order to experience its many layers of flavor. This is up to you. We serve it with a sparkling water back."]
@@ -70,6 +75,7 @@ coffee_data = {
         "timer" : [0,1,0.5,4],
         "time": "4-5 minutes",
         "lvl" : "Simple",
+        "qs" : ["Boil water.", "Pour twice the amount of water than you have coffee onto your grounds.", "Gently stir. Allow the coffee to bloom for 30 seconds.", "Pour water. Place lid gently on top. Let steep for 4 minutes."],
         "background" : "French press coffee is dense and heavy, yet it has its own sort of elegance. As with any method, the devil is in the details: To achieve a full expression of the coffee, decant it immediately after brewing so it doesn’t become bitter or chalky. Then, sink into this rich and heady cup. It only takes four minutes to brew.",
         "materials" : ["French press", "Grinder", "Kettle", "Scale", "Timer", "Wooden Spoon", "1:12 Coffee to Water Ratio"],
         "explanations" : ["Bring enough water to fill the French press to a boil. For a 17-oz press, you'll need about 350 grams (12 ounces)\nWhile the water is heating, grind your coffee. French press coffee calls for a coarse, even grind. We recommend starting with a 1:12 coffee-to-water ratio. If you're using 350 grams of water, you’ll want 30 grams of coffee.","To start, gently pour twice the amount of water than you have coffee onto your grounds. For example, if you have 30 grams of coffee, you’ll want to start with 60 grams of water.","Give the grounds a gentle stir with a bamboo paddle or chopstick. Allow the coffee to bloom for 30 seconds.", "Pour the remaining water and place the lid gently on top of the grounds. Don’t plunge just yet. Let the coffee steep for four minutes. Four. Don’t guess."]
@@ -99,6 +105,14 @@ coffee_data = {
     }
 }
 
+# master_quiz = [
+#     {
+#         "question" : "Which one of these methods require"
+#     }, 
+#     {
+
+#     }
+# ]
 wish_list = []
 done_list =[]
 @app.route('/')
@@ -106,10 +120,6 @@ def home():
     global coffee_data
     return render_template("welcome.html", data=coffee_data, wish_list=wish_list)
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/coffee/<selected>', methods=['GET', 'POST'])
 def coffee(selected):
@@ -160,7 +170,7 @@ def wishList():
 def makeQuiz(select):
     global coffee_data
     choice = coffee_data[select]
-    return render_template("quiz.html", data=coffee_data, brew=choice)
+    return render_template("quiz.html", data=coffee_data, brew=choice, choice=select)
 
 @app.route('/outline/<select>')
 def outline(select):

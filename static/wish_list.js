@@ -18,7 +18,7 @@ function loadWish() {
         $(img).attr('src', data[name]['images'][data[name]['images'].length-1])
         $(row).append(img)
         var col1 = $("<div class='col-md-4'>")
-        var m_name = $("<a href='coffee/"+name+"' class='name'>")
+        var m_name = $("<a href='outline/"+name+"' class='name'>")
         $(m_name).html(name)
         $(col1).append(m_name)
         $(col1).append("<div class='lvl'>Skill Level: "+ data[name]['lvl']+"</div>")
@@ -41,7 +41,7 @@ function loadWish() {
 		$(qform).attr('action','/quiz/' + name)
 		$(qform).attr('method', 'get')
         $(qform).data('value', data[name])
-        var quizbtn = $("<button class='btn btn-warning wlist-btns'>")
+        var quizbtn = $("<button class='btn btn-success wlist-btns'>")
         $(quizbtn).html('Take the Quiz!')
         $(qform).append(quizbtn)
         $(col2).append(qform)
@@ -71,7 +71,7 @@ function loadDone(){
         $(img).attr('src', data[name]['images'][data[name]['images'].length-1])
         $(row).append(img)
         var col1 = $("<div class='col-md-4'>")
-        var m_name = $("<a href='coffee/"+name+"' class='name'>")
+        var m_name = $("<a href='outline/"+name+"' class='name'>")
         $(m_name).html(name)
         $(col1).append(m_name)
 
@@ -85,7 +85,7 @@ function loadDone(){
         var newConcept= $("<button class='btn btn-info wlist-btns'>")
         $(newConcept).html('View Instructions')
         $(form).append(newConcept)
-        
+        $(col2).append(form)
         
 
         var qform = $("<form>")
@@ -93,11 +93,11 @@ function loadDone(){
 		$(qform).attr('action','/quiz/' + name)
 		$(qform).attr('method', 'get')
         $(qform).data('value', data[name])
-        var quizbtn = $("<button class='btn btn-warning wlist-btns'>")
+        var quizbtn = $("<button class='btn btn-success wlist-btns'>")
         $(quizbtn).html('Retake Quiz!')
         $(qform).append(quizbtn)
         $(col2).append(qform)
-        $(col2).append(form)
+        
         var rating = parseInt(done_list[i]['rating'])
     
         $(col1).append("Your score: " + rating + '%')

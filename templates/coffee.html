@@ -15,6 +15,7 @@
                 font-weight: 100;
                 text-align: center;
                 font-size: 30px;
+                margin-left: 600px;
             }
             #clockdiv > div{
                 padding: 10px;
@@ -114,6 +115,25 @@
                 margin-right: auto;
                 text-align: center;
             }
+            .btns {
+                width: 150px;
+					display: block;
+					padding: 15px;
+					margin: 5px;
+					font-weight: bold;
+            }
+            .done-msg {
+                color: black;
+                font-size: 22px;
+                font-weight: bold;
+                padding-bottom: 25px;
+                text-align: center;
+                width: 500px;
+            }
+            #form1 {
+                margin-left: 150px;
+                padding: 10px;
+            }
         </style>
         <script type="text/javascript">
             var data = {{data|tojson}}
@@ -153,10 +173,10 @@
         <div  class="col-md-6">
 
                 <div id="expl"></div>
-                <div class='rating-stars text-center invisible' id="stardiv">
-
+                <div class='' id="stardiv">
+                    <div class="done-msg">You're done with the instructions.<br> Now let's see if you learned!</div>
                 <form action="/quiz/{{choice}}" method="get" id="form1">
-                    <button class= 'btn btn-warning'> Take the Quiz! <span class='glyphicon glyphicon-list-alt'></span> </button></form>
+                    <button class= 'btns btn btn-success'> Take the Quiz! <span class='glyphicon glyphicon-list-alt'></span> </button></form>
                 </div>
                 
                 
@@ -166,7 +186,9 @@
     </div>
         <button id="prevBtn" class="btn btn-dark">Previous Step</button> 
         <button id="nextBtn" class="btn btn-dark">Next Step</button> <br>
-        <div id="clockdiv">
+        <div class="row">
+        <!-- <div class="col-md-6" style="width: 100%;"></div> -->
+        <div id="clockdiv" class="col-md-6">
         <div>
             <span id="minutes"></span>
             <div class="smalltext">Minutes</div>
@@ -176,9 +198,9 @@
             <div class="smalltext">Seconds</div>
             
         </div>
-        <button class="btn btn-success" id="timer_start"> Start Timer!</button>
-        <button class="btn btn-danger" id="timer_stop"> Stop Timer</button>
-        </div>
+        <button class="btn btn-success" id="timer_start"> <span class="glyphicon glyphicon-play-circle"></span></button>
+        <button class="btn btn-danger" id="timer_stop"> <span class="glyphicon glyphicon-pause"></button>
+        </div></div>
        
     </div>
 

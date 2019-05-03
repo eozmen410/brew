@@ -51,10 +51,10 @@
             }
             .image {
 					display: inline-block;
-					max-width: 150px;
-					max-height: 150px;
-                    margin-left: auto;
-                    margin-right: auto;
+					max-width: 350px;
+					max-height: 200px;
+                    /* margin-left: auto;
+                    margin-right: auto; */
                     
 				}
 				.name {
@@ -67,13 +67,59 @@
                 .item {
 					border: 1px solid lightgrey;
         	        padding: 10px;
-                    width: 200px;
+                    /* width: 200px; */
                     height: 200px;
                     margin-left: auto;
                     margin-right: auto;
 				}
                 .drag-drop {
                     height: 500px;
+                }
+                .steps {
+                    color: rgb(66, 70, 61);
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                .top-btns {
+                    margin: 20px;
+                    font-size:16px;
+                    font-weight: bold;
+                    /* padding: 15px; */
+
+                }
+                #inst {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                #prompt {
+                    color: black;
+                    font-size: 24px;
+                    width: 100%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    /* padding-left: 150px; */
+                    text-align: center;
+                    /* font-weight: bold; */
+                }
+                #score {
+                    color: darkgreen;
+                    font-size: 28px;
+                    font-weight: bolder;
+                    text-align: center;
+                    width: 100%;
+                }
+                #name {
+                    text-align: center;
+                    margin-left: auto;
+                    margin-right: auto;
+                    font-size: 28px;
+                    font-weight: bolder;
+                    color:rgb(43, 85, 165);
+                }
+                .bck-msg {
+                    color: gray;
+                    font-size: 20px;
+
                 }
         </style>
         <script type="text/javascript">
@@ -97,12 +143,23 @@
 					</div>
 				  </nav>
 
+         <div class="row">
+             <div id="inst" > 
+                 <div id="name" ><a href="/outline/{{choice}}">{{choice}}</a></div>
+                 <div id="prompt">Put the steps in order!</div>
+            <button id="check_btn" class="top-btns btn btn-success">Check Answers!</button>
+            <a class="btn btn-secondary top-btns" href="/quiz/{{choice}}">Start Over     <span class="glyphicon glyphicon-repeat"></span></a>
+            <a class="btn btn-info top-btns" href="/coffee/{{choice}}">Go back to Instructions</a>
+        </div> </div> <hr>
+        <div class= "row" >
+                <div id="score"></div>
+            </div>
           <div class="row">
         <div id="drag-div" class="col-md-6 drag-drop"> </div>
         <div id="drop-div" class="col-md-6 drag-drop">  </div>
         </div>
     </div>
-        <button id="check_btn" class="btn btn-success">Check Answers!</button> 
+         
        
     </div>
 
