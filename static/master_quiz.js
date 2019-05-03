@@ -2,18 +2,16 @@ $(document).ready(function(){
     console.log('master quiz ready')
     console.log(quiz)
     shuffleArray(quiz)
-   
-    makeQuestion(q_nb)
-    
-    // $("#nextBtn").click(function(){
-    //     q_nb++;
-    //     makeQuestion(q_nb)
-    // })
+    if (done.length== 8){
+        $("#warn-msg").addClass('invisible')
+        makeQuestion(q_nb)
+    } 
+    $("#yes").click(function(){
+        $("#warn-msg").addClass('invisible')
+        makeQuestion(q_nb)
+    })
 
-    // $("#prevBtn").click(function(){
-    //     q_nb--;
-    //     makeQuestion(q_nb);
-    // })
+
 })
  var answers = []
  var q_nb = 0;
@@ -72,7 +70,7 @@ function checkAnswers() {
     var score = 0
     for(var i= 0; i <quiz.length; i++) {
         var q_row = $("<div class='q-row row'>")
-        var question = $("<div class='question'>"+String(q_nb+1) +") " + quiz[i]['q']+ "</div>")
+        var question = $("<div class='question'>"+String(i+1) +") " + quiz[i]['q']+ "</div>")
         // console.log(q)
         $(q_row).append(question)
         $(q_row).append("<div class='ans'> Your answer: " + answers[i] + "</div>")
@@ -85,7 +83,7 @@ function checkAnswers() {
         }
         $("#quiz-content").append(q_row)
     }
-    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb+1)*100)+ "%</div>")
+    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb+1)*100)+ "% <br> <a class='btn btn-primary' href='/master_quiz'>Start Over     <span class='glyphicon glyphicon-repeat'></span></a></div>")
 }
 
 

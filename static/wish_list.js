@@ -5,6 +5,7 @@ $(document).ready(function(){
     console.log(data)
     console.log(wish_list)
     console.log(done_list)
+    $("#count").html(done_list.length)
 })
 
 function loadWish() {

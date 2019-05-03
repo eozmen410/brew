@@ -89,6 +89,7 @@
                 font-size: 18px;
                 color: rgb(3, 3, 78);
                 text-align: center;
+                font-weight: bold;
 
             }
             #score {
@@ -98,9 +99,25 @@
                     text-align: center;
                     width: 100%;
                 }
+            .warn {
+                background-color: rgba(233, 22, 22, 0.657);
+                font-size: 24px;
+                font-weight: bold;
+                color:white;
+                padding: 15px;
+                border-radius: 10px;
+                border: 1px solid gray;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            .invisible{
+                display: none;
+            }
+            
         </style>
         <script type="text/javascript">
             var quiz = {{quiz|tojson}}
+            var done = {{done|tojson}}
         </script>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <script type="text/javascript" src="{{ url_for('static', filename = 'master_quiz.js') }}"></script>
@@ -130,11 +147,13 @@
         <div class="row"> 
             <div class="col-md-2"></div>
             <div class="col-md-8">
+                <div class="row warn" id="warn-msg" >Warning! Looks like you're trying to take the master quiz before learning all the methods. This quiz includes questions about all the methods listed. Are you sure you want to continue?
+                    <br> 
+                    <button class="btn btn-warning" id="yes">Yes let me try!</button>
+                    <a class="btn btn-info" id="no" href='/wish_list'>No take me back to learning.</a>
+                </div>
                 <div class="row"  id="quiz-content"></div>
-                <!-- <div class="row">
-                        <button id="prevBtn" class="btn btn-dark">Previous Question</button> 
-                        <button id="nextBtn" class="btn btn-dark">Next Question</button>
-                </div> -->
+
             </div>
             <div class="col-md-2"></div>
         </div>

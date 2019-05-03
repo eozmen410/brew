@@ -225,7 +225,8 @@ def outline(select):
 @app.route('/master_quiz')
 def m_quiz():
     global master_quiz
-    return render_template("master_quiz.html", quiz=master_quiz)
+    global done_list
+    return render_template("master_quiz.html", quiz=master_quiz, done=done_list)
 
 if __name__ == '__main__':
 	app.run(debug = True)
