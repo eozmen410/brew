@@ -85,7 +85,7 @@ coffee_data = {
         "images" :["../static/images/siphon1.jpg","../static/images/siphon2.jpg","../static/images/siphon3.jpg","../static/images/siphon4.jpg","../static/images/siphon5.jpg","../static/images/siphon6.jpg","../static/images/siphon7.jpg","../static/images/siphon8.jpg","../static/images/siphon9.jpg","../static/images/siphon10.jpg"],
         "nb_steps" : 10,
         "time" : "2-2.5 minutes",
-        "timer" : [0,0,0,0,0,0,0,0.5,0,0,0],
+        "timer" : [0,0,0,0,0,0,0,1.1,0,0,0],
         "lvl" : "Advanced",
         "background" : "Siphon coffee was invented in the 1840s more or less simultaneously by a French housewife and Scottish marine engineer. It’s been refined many times, but a few principles hold true: It produces a delicate, tea-like cup of coffee; it can be quite persnickety; and it is, for our money, one of the coolest brew methods available.",
         "materials" : ["Grinder", "Scale", "Siphon set", "Thermometer", "Timer", "20-25 grams of coffee"],
@@ -105,14 +105,58 @@ coffee_data = {
     }
 }
 
-# master_quiz = [
-#     {
-#         "question" : "Which one of these methods require"
-#     }, 
-#     {
-
-#     }
-# ]
+master_quiz = [
+    {
+        "q" : "Which one of these methods require 2 liters of water and 454 grams of coffee?",
+        "a" : "Cold Brew",
+        "w" : ["Chemex", "Siphon", "AeroPress", "Cold Brew"]
+    }, 
+    { 
+        "q" : "Which one of these methods require exactly 4 pours of water in 200-gram increments?",
+        "a": "Chemex",
+        "w" : ["Siphon", "New Orleans Iced Coffee", "French Press", "Chemex"]
+    }, 
+    {
+        "q" : "You have to stop the machine after 30 seconds to make the perfect ...",
+        "a" : "Espresso",
+        "w" : ["Coffee Machine Coffee", "French Press", "Cold Brew", "Espresso"]
+    },
+    {
+        "q": "For which method do you need a 2:1 water:coffee ratio?",
+        "a": "AeroPress",
+        "w" : ["Chemex", "French Press", "Espresso", "AeroPress"]
+    }, 
+    {
+        "q" : "Which method requires 1:12 coffe:water ratio and 4 minute steep time?",
+        "a" : "French Press",
+        "w" : ["Espresso", "AeroPress", "Siphon", "French Press"]
+    },
+    {
+        "q": "Which method requires 1.5 cups of cold water?",
+        "a" : "Coffee Machine",
+        "w" : ["Cold Brew", "New Orleans Iced Coffee", "Chemex", "Coffee Machine"]
+    },
+    {
+        "q" : "Which method requires you to soak the filter in warm water for 5 minutes before you start brewing?",
+        "a" : "Siphon",
+        "w" : ["Cold Brew", "AeroPress", "Coffee Machine", "Siphon"]
+    },
+    {
+        "q" : "Which method requires 300 grams of hot water and 20-25 grams of fine ground coffee?",
+        "a" : "Siphon",
+        "w" : ["AeroPress", "French Press", "Cold Brew", "Siphon"]
+    },
+    {
+        "q" : "Which of these methods requires milk, cream, or a dairy alternative?",
+        "a" : "New Orleans Iced Coffee",
+        "w" : ["Siphon", "Chemex", "AeroPress", "New Orleans Iced Coffee"]
+    },
+    {
+        "q": "Which brewing method uses simple syrup?",
+        "a" : "New Orleans Iced Coffee",
+        "w" : ["AeroPress", "Chemex", "Siphon", "New Orleans Iced Coffee"]
+    }
+]
 wish_list = []
 done_list =[]
 @app.route('/')
@@ -178,6 +222,10 @@ def outline(select):
     choice = coffee_data[select]
     return render_template("outline.html", data=coffee_data, brew=choice, choice=select)
 
+@app.route('/master_quiz')
+def m_quiz():
+    global master_quiz
+    return render_template("master_quiz.html", quiz=master_quiz)
 
 if __name__ == '__main__':
 	app.run(debug = True)

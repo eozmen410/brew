@@ -50,12 +50,6 @@
                 padding: 10px;
                 display: inline !important;
             }
-        
-            #steps {
-                font-weight: bold;
-                font-size: 24px;
-                color :#00816A;
-            }
             #method {
                 text-align: center;
                 margin-left: auto;
@@ -63,30 +57,40 @@
                 font-size: 28px;
                 font-weight: bolder;
                 color:rgb(43, 85, 165);
+                margin-bottom: 50px;
             }
-            #lvl {
-                color: grey;
+            .question {
                 font-size: 20px;
                 font-weight: bold;
-                margin-left:auto;
-                margin-right: auto;
+                padding: 15px;
+                text-align: center;
+                width: 100%;
+
+            }
+            .m-choice {
+                font-size: 20px;
+                width: 45%;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                display: inline-block;
+                cursor: pointer;
+                background-color:cornflowerblue;
+                color: white;
+                border-radius: 10px;
+                margin: 15px;
                 text-align: center;
             }
-            #bck {
-                color: rgb(73, 71, 71);
-                font-size: 16px;
-            }
-            #mtr {
-                color: black;
-                font-size: 18px;
+            .q-row {
+                border: 1px solid gray;
+                border-radius: 10px;
+                margin: 5px;
             }
         </style>
         <script type="text/javascript">
-            var data = {{data|tojson}}
-            var brew ={{brew|tojson}}
+            var quiz = {{quiz|tojson}}
         </script>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <script type="text/javascript" src="{{ url_for('static', filename = 'outline.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'master_quiz.js') }}"></script>
     </head>
     <body>
         <div class="container-fluid" >
@@ -109,24 +113,18 @@
                         <button class= 'btn btn-primary'> <span class='glyphicon glyphicon-home'></span> </button></form>
         
          -->
-         <div id="method" ></div> 
-        <div class="row">
-        <div id="imgdiv" class="col-md-6"> <img id="step_img"> </div>
-        <div  class="col-md-6">
-                <div id="expl">
-                        <h2>What You'll Need:</h2>
-                        <div id="mtr"></div>
-                    <h2>Background:</h2>
-                    <div id="bck"></div><br>
-                    
-
-
-                </div>
-                <form action="/coffee/{{choice}}" method="get" id="form1">
-                    <button class= 'btn btn-info'> View Instructions <span class='glyphicon glyphicon-list-alt'></span> </button></form>
-
+         <div id="method" >Master Quiz</div> 
+        <div class="row"> 
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row"  id="quiz-content"></div>
+                <!-- <div class="row">
+                        <button id="prevBtn" class="btn btn-dark">Previous Question</button> 
+                        <button id="nextBtn" class="btn btn-dark">Next Question</button>
+                </div> -->
+            </div>
+            <div class="col-md-2"></div>
         </div>
-    </div>
         
        
     </div>
