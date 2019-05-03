@@ -43,6 +43,7 @@ function makeQuestion(nb) {
             } else {
                 console.log('checking answers')
                 $("#quiz-content").empty()
+                checkAnswers()
             }
         })
         $(opt).append(choice)
@@ -65,7 +66,26 @@ function shuffleArray(array) {
 
 
 function checkAnswers() {
+    $("#quiz-content").empty()
     console.log('checking answers')
+    var checking = []
+    var score = 0
+    for(var i= 0; i <quiz.length; i++) {
+        var q_row = $("<div class='q-row row'>")
+        var question = $("<div class='question'>"+String(q_nb+1) +") " + quiz[i]['q']+ "</div>")
+        // console.log(q)
+        $(q_row).append(question)
+        $(q_row).append("<div class='ans'> Your answer: " + answers[i] + "</div>")
+        $(q_row).append("<div class='ans'> Correct answer: " + quiz[i]['a'] + "</div>")
+        if (answers[i] == quiz[i]['a']){
+            score++;
+            $(q_row).css('background-color','rgba(45, 179, 45, 0.63)')
+        } else {
+            $(q_row).css('background-color','rgba(223, 51, 51, 0.582)')
+        }
+        $("#quiz-content").append(q_row)
+    }
+    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb+1)*100)+ "%</div>")
 }
 
 
