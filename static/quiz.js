@@ -50,6 +50,7 @@ function populate(arr) {
         
         $(row).data('value', arr[i]['index'])
         $(row).data('src', arr[i]['image'])
+        $(row).data('position', i)
         $(row).draggable({
             refreshPositions: true,
             drag: function(event, ui) {
@@ -84,16 +85,20 @@ function populate(arr) {
                 var src = $(ui.draggable).data('src')
                 var index = $(ui.draggable).data('value')
                 console.log('dropped')
-                console.log(index)
+                // console.log(index)
                 var id_img = $(this).data('i')
                 // $("#"+ id_img + "_image").attr('src', src)
                 $(this).append("<img class='image col-md-5' src='"+src+"'>")
                 var col_d = $("<div class='col-md-6'>")
-                $(col_d).html("<span class='steps'>" + arr[id_img]['q']+ "</span>")
+                console.log('id_img' + id_img)
+                console.log(arr);
+                var position = $(ui.draggable).data('position')
+                $(col_d).html("<span class='steps'>" + arr[position]['q']+ "</span>")
                 $(this).append(col_d)
                 if (index == id_img){
                     answers[id_img] = true
                 }
+                $(this).droppable("disable")
             }
         })
         $("#drop-div").append(drow)

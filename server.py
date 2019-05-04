@@ -72,7 +72,7 @@ coffee_data = {
         "name" : "French Press",
         "images": ["../static/images/french1.jpg","../static/images/french2.jpg","../static/images/french3.jpg","../static/images/french4.jpg"],
         "nb_steps" : 4,
-        "timer" : [0,1,0.5,4],
+        "timer" : [0,0,0.5,4],
         "time": "4-5 minutes",
         "lvl" : "Simple",
         "qs" : ["Boil water.", "Pour twice the amount of water than you have coffee onto your grounds.", "Gently stir. Allow the coffee to bloom for 30 seconds.", "Pour water. Place lid gently on top. Let steep for 4 minutes."],
