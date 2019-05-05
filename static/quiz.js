@@ -122,7 +122,7 @@ function check(){
     console.log(score_p)
     saveRating(parseInt(score_p))
     $("#score").empty()
-    $("#score").append("You scored: " +score_p + "%")
+    $("#score").append("You scored: " +parseInt(score_p) + "%")
     $("#score").append("<br><span class='bck-msg'>Go back to <a href='/wish_list'>your lists</a> to keep learning or to take different quizzes!</span>")
 }
 function saveRating(ratingValue) {

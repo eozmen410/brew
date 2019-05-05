@@ -15,6 +15,8 @@ function getTimeRemaining(endtime) {
     };
   }
 var timeinterval
+var seconds_left
+var min_left
 function initializeClock(id, endtime) {
     var clock = $("#"+id) //document.getElementById(id);
     var minutesSpan = $("#minutes")//clock.querySelector('.minutes');
@@ -25,9 +27,12 @@ function initializeClock(id, endtime) {
       console.log(t)
   
       $(minutesSpan).html ('0' + t.minutes).slice(-2);
-      console.log(minutesSpan)
+      // console.log(minutesSpan)
+      min_left = t.minutes
+      seconds_left = t.seconds;
       if(t.seconds<10) {
         $(secondsSpan).html('0' + t.seconds).slice(-2);
+      
       } else {
         $(secondsSpan).html( t.seconds).slice(-2);
       }
@@ -48,7 +53,7 @@ var step = 0
 // var brew = data['AeroPress']
 var images = brew['images']
 var max_steps = brew['nb_steps']
-
+var tm = brew['timer'][step]
 
 $(document).ready(function(){
   $("#method").html(brew['name'])
@@ -57,7 +62,7 @@ $(document).ready(function(){
     console.log(data)
     $("#timer_start").click(function(){
         console.log('starting timer')
-        startTimer();
+        startTimer(tm);
         $("#timer_start").attr('disabled',true)
         $("#timer_stop").attr('disabled',false)
 
@@ -65,10 +70,15 @@ $(document).ready(function(){
 
     $("#timer_stop").click(function(){
         clearInterval(timeinterval)
+        console.log(seconds_left)
+        tm = min_left + (seconds_left/60)
         $("#timer_start").attr('disabled',false)
         $("#timer_stop").attr('disabled',true)
     })
 
+    $("#timer_restart").click(function(){
+        updateTimer()
+    })
 
     if (brew['timer'][step]=0) {
         $("#clockdiv").css('display', 'none')
@@ -80,65 +90,67 @@ $(document).ready(function(){
         updateStep()
         updateBar()
         updateTimer()
+        tm = brew['timer'][step]
     })
     $("#prevBtn").click(function(){
         step--;
         updateStep()
         updateBar()
         updateTimer()
+        tm = brew['timer'][step]
     })
 
-     /* 1. Visualizing things on Hover - See next part for action on click */
-  $('#stars li').on('mouseover', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+  //    /* 1. Visualizing things on Hover - See next part for action on click */
+  // $('#stars li').on('mouseover', function(){
+  //   var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
    
-    // Now highlight all the stars that's not after the current hovered star
-    $(this).parent().children('li.star').each(function(e){
-      if (e < onStar) {
-        $(this).addClass('hover');
-      }
-      else {
-        $(this).removeClass('hover');
-      }
-    });
+  //   // Now highlight all the stars that's not after the current hovered star
+  //   $(this).parent().children('li.star').each(function(e){
+  //     if (e < onStar) {
+  //       $(this).addClass('hover');
+  //     }
+  //     else {
+  //       $(this).removeClass('hover');
+  //     }
+  //   });
     
-  }).on('mouseout', function(){
-    $(this).parent().children('li.star').each(function(e){
-      $(this).removeClass('hover');
-    });
-  });
+  // }).on('mouseout', function(){
+  //   $(this).parent().children('li.star').each(function(e){
+  //     $(this).removeClass('hover');
+  //   });
+  // });
   
   
-  /* 2. Action to perform on click */
-  $('#stars li').on('click', function(){
-    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
-    var stars = $(this).parent().children('li.star');
+  // /* 2. Action to perform on click */
+  // $('#stars li').on('click', function(){
+  //   var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+  //   var stars = $(this).parent().children('li.star');
     
-    for (i = 0; i < stars.length; i++) {
-      $(stars[i]).removeClass('selected');
-    }
+  //   for (i = 0; i < stars.length; i++) {
+  //     $(stars[i]).removeClass('selected');
+  //   }
     
-    for (i = 0; i < onStar; i++) {
-      $(stars[i]).addClass('selected');
-    }
+  //   for (i = 0; i < onStar; i++) {
+  //     $(stars[i]).addClass('selected');
+  //   }
     
-    // JUST RESPONSE (Not needed)
-    var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-    saveRating(ratingValue)
-  });
+  //   // JUST RESPONSE (Not needed)
+  //   var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+  //   saveRating(ratingValue)
+  // });
 
 
 })
 
-function startTimer() {
-    var timeInMinutes = brew['timer'][step]//data['AeroPress']['timer'][step];
+function startTimer(tm) {
+    var timeInMinutes = tm //brew['timer'][step]
     console.log(timeInMinutes)
     var currentTime = Date.parse(new Date());
     var deadline = new Date(currentTime + timeInMinutes*60*1000);
     initializeClock('clockdiv', deadline);
 }
 function updateTimer(){
-    var timeInMinutes = brew['timer'][step]//data['AeroPress']['timer'][step];
+    var timeInMinutes = brew['timer'][step]
     console.log(timeInMinutes)
     var currentTime = Date.parse(new Date());
     var deadline = new Date(currentTime + timeInMinutes*60*1000);

@@ -95,6 +95,7 @@
                     color: black;
                     font-size: 24px;
                     width: 100%;
+                    padding: 10px;
                     margin-left: auto;
                     margin-right: auto;
                     /* padding-left: 150px; */
@@ -120,6 +121,11 @@
                     color: gray;
                     font-size: 20px;
 
+                }
+                #buttons {
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 200px;
                 }
         </style>
         <script type="text/javascript">
@@ -147,11 +153,12 @@
          <div class="row">
              <div id="inst" > 
                  <div id="name" ><a href="/outline/{{choice}}">{{choice}}</a></div>
-                 <div id="prompt">Put the steps in order!</div>
-            <button id="check_btn" class="top-btns btn btn-success">Check Answers!</button>
+                 <div id="prompt">Put the steps in order by dragging from the left column and dropping in the boxes on the right!</div>
+            <div id ="buttons">
+                 <button id="check_btn" class="top-btns btn btn-success">Check Answers!</button>
             <a class="btn btn-secondary top-btns" href="/quiz/{{choice}}">Start Over     <span class="glyphicon glyphicon-repeat"></span></a>
             <a class="btn btn-info top-btns" href="/coffee/{{choice}}">Go back to Instructions</a>
-        </div> </div> <hr>
+        </div></div> </div> <hr>
         <div class= "row" >
                 <div id="score"></div>
             </div>
