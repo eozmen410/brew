@@ -65,6 +65,7 @@ $(document).ready(function(){
         startTimer(tm);
         $("#timer_start").attr('disabled',true)
         $("#timer_stop").attr('disabled',false)
+        $("#timer_restart").attr('disabled',true)
 
     })
 
@@ -78,6 +79,7 @@ $(document).ready(function(){
 
     $("#timer_restart").click(function(){
         updateTimer()
+        tm = brew['timer'][step]
     })
 
     if (brew['timer'][step]=0) {
