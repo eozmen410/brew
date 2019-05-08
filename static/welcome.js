@@ -3,6 +3,7 @@ $(document).ready(function(){
     console.log(data)
     loadButtons()
     updateCount(wish_list.length)
+    // $("#"+ 1).show()
 })
 function updateCount(count) {
     $("#count").html(count)
@@ -10,11 +11,14 @@ function updateCount(count) {
 
 function loadButtons() {
     $("#list").empty()
+    $("#side").empty()
+    var i = 0;
     Object.keys(data).forEach(function(key, value) {
         var name = key
-        var row = $("<div>")
+        var row = $("<div id='r_"+i+"'>")
         $(row).addClass('row item')
-        var img = $("<img class='image col-md-5'>")
+        $(row).data('val', i)
+        var img = $("<img class='image col-md-5' >")
         console.log(value)
         console.log(key)
         $(img).attr('src', data[key]['images'][data[key]['images'].length-1])
@@ -42,10 +46,32 @@ function loadButtons() {
         }
         $(row).append(col)
         $(row).append(btn)
-		
+        //make the div that's gonna appear on hover
+        var hov = $("<div class='outline' id='"+i+"'>")
+        $(hov).append("<div class='row'>"+ name + "</div>")
+        $(hov).html(data[key]['materials'])
+        $("#side").append(hov)
+        $("#"+ i).hide()
+        // $("#"+ i).css('display','none')
+
         $("#list").append(row)
+        $("#r_"+i).mouseover(function() {
+            // console.log('hovering!')
+            var x = $(this).data("val")
+            $("#" + x).show()
+        }).mouseout(function(){
+            // console.log('hover out')
+            var x = $(this).data("val")
+            if($("#"+ x).is(":visible")){
+                $( "#"+ x).hide();
+           }
+        })
+        
+        i++;
     })
 }
+
+
 
 function addToWishList(brew_m) {
     $.ajax({

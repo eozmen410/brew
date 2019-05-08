@@ -100,20 +100,38 @@
                     width: 100%;
                 }
             .warn {
-                background-color: rgba(233, 22, 22, 0.657);
                 font-size: 24px;
                 font-weight: bold;
-                color:white;
+                color:red;
                 padding: 15px;
                 border-radius: 10px;
-                border: 1px solid gray;
+                border: 1px solid red;
                 margin-top: 15px;
                 margin-bottom: 15px;
             }
             .invisible{
                 display: none;
             }
-            
+            .options{
+                /* margin-left: 400px; */
+                padding: 15px;
+                width: 100%;
+                /* margin-right: auto; */
+                /* font-weight: bold; */
+                /* font-size: 17px; */
+            }
+            .choose {
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 18px;
+            }
+            #yes {
+                margin-left: 400px;
+                color: black;
+            }
+            #no {
+                margin-right: 150px;
+            }
         </style>
         <script type="text/javascript">
             var quiz = {{quiz|tojson}}
@@ -149,9 +167,10 @@
             <div class="col-md-8">
                 <div class="row warn" id="warn-msg" >Warning! Looks like you're trying to take the master quiz before learning all the methods. This quiz includes questions about all the methods listed. Are you sure you want to continue?
                     <br> 
-                    <button class="btn btn-warning" id="yes">Yes let me try!</button>
-                    <a class="btn btn-info" id="no" href='/wish_list'>No take me back to learning.</a>
-                </div>
+                    <div class='options' >
+                    <button class="btn btn-dark choose" id="yes" >Yes let me try!</button>
+                    <a class="btn btn-info choose" id="no" href='/wish_list'>No take me back to learning.</a>
+                </div></div>
                 <div class="row"  id="quiz-content"></div>
 
             </div>
