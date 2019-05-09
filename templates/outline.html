@@ -96,10 +96,16 @@
                 text-align: center;
 
             }
+            #form1 {
+                display: inline;
+                margin: 5px;
+            }
         </style>
         <script type="text/javascript">
             var data = {{data|tojson}}
             var brew ={{brew|tojson}}
+            var wish_list = {{wish_list|tojson}}
+            // var choice = {{choice|tojson}}
         </script>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <script type="text/javascript" src="{{ url_for('static', filename = 'outline.js') }}"></script>
@@ -140,9 +146,10 @@
 
 
                 </div>
-                <form action="/coffee/{{choice}}" method="get" id="form1">
-                    <button class= 'btn btn-info'> View Instructions <span class='glyphicon glyphicon-list-alt'></span> </button></form>
-
+                <div id ="trns">
+                <!-- <form action="/coffee/{{choice}}" method="get" id="form1">
+                    <button class= 'btn btn-info'> View Instructions <span class='glyphicon glyphicon-list-alt'></span> </button></form> -->
+                </div>
         </div>
     </div>
         

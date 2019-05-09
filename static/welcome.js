@@ -48,23 +48,32 @@ function loadButtons() {
         $(row).append(btn)
         //make the div that's gonna appear on hover
         var hov = $("<div class='outline' id='"+i+"'>")
-        $(hov).append("<div class='row'>"+ name + "</div>")
-        $(hov).html(data[key]['materials'])
+        $(hov).append("<span class='name'>"+key+"</span>")
+        $(hov).append(data[key]['background'])
+        // var hov = $("<div class='outline' id='"+i+"'>")
+        // $(hov).append("<div class='row name'>"+ key + "</div>")
+        // $(hov).append("<h4>Materials:</h4>")
+        // var mtr = $("<div class='row'>")
+        // for(var i=0; i< data[key]['materials'].length; i++){
+        //     var m = data[key]['materials'][i]
+        //     $(hov).append(m)
+        //     // $(mtr).append("<div> - " + m + "</div>")
+        // }
+        // $(hov).append(mtr)
+
         $("#side").append(hov)
         $("#"+ i).hide()
         // $("#"+ i).css('display','none')
 
         $("#list").append(row)
         $("#r_"+i).mouseover(function() {
-            // console.log('hovering!')
+            console.log('hovering!')
             var x = $(this).data("val")
             $("#" + x).show()
         }).mouseout(function(){
-            // console.log('hover out')
+            console.log('hover out')
             var x = $(this).data("val")
-            if($("#"+ x).is(":visible")){
-                $( "#"+ x).hide();
-           }
+            $( "#"+ x).hide();
         })
         
         i++;

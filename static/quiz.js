@@ -16,7 +16,7 @@ var answers = []
 
 function makeArray (images, qs) {
     var arr = []
-    for (var i=0; i<images.length; i++){
+    for (var i=0; i<qs.length; i++){
         var item = {'image': images[i], 'q': qs[i], 'index': i}
         arr.push(item)
     }

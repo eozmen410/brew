@@ -85,8 +85,9 @@ coffee_data = {
         "images" :["../static/images/siphon1.jpg","../static/images/siphon2.jpg","../static/images/siphon3.jpg","../static/images/siphon4.jpg","../static/images/siphon5.jpg","../static/images/siphon6.jpg","../static/images/siphon7.jpg","../static/images/siphon8.jpg","../static/images/siphon9.jpg","../static/images/siphon10.jpg"],
         "nb_steps" : 10,
         "time" : "2-2.5 minutes",
-        "timer" : [0,0,0,0,0,0,0,1.1,0,0,0],
+        "timer" : [0,0,0,0,0,0,0,1.1666667,0,0,1],
         "lvl" : "Advanced",
+        "qs" : ["Soak filter in warm water.", "Fill the bulb with 300 grams of hot water.", "Insert the hopper, filter and all, into the bulb.", "While the water is heating, weigh 20-25 grams of coffee.", "Soon, the water in the bulb will begin boiling and rise up into the hopper.", "Once the water has moved into the hopper, turn your heat source down.", "Add your coffee, and gently (but thoroughly) submerge it with a bamboo paddle or butter knife.", "Let the coffee brew, undisturbed, for one minute and 10 seconds.","Take another minute for your coffee to draw downward and rest in the bulb."],
         "background" : "Siphon coffee was invented in the 1840s more or less simultaneously by a French housewife and Scottish marine engineer. It’s been refined many times, but a few principles hold true: It produces a delicate, tea-like cup of coffee; it can be quite persnickety; and it is, for our money, one of the coolest brew methods available.",
         "materials" : ["Grinder", "Scale", "Siphon set", "Thermometer", "Timer", "20-25 grams of coffee"],
         "explanations" : ["After soaking your filter in a warm water bath for at least five minutes, drop it into the bottom of your siphon’s top component, or “hopper,” and hook to the bottom of the hopper’s glass tubing.","Fill your siphon’s bottom component, or “bulb,” with 300 grams of hot water (about a 12-oz. cup’s worth).", "Insert the hopper, filter and all, into the bulb. You don't have to press too hard; just make sure it's securely and evenly in place. Position the entire assembly above your heat source.","While the water is heating, measure out between 20-25 grams of coffee and grind it just little bit finer than you would for regular drip coffee.","Soon, the water in the bulb will begin boiling and rise up into the hopper. For some physics-related reason we don’t fully understand, a little bit will stay in the bottom. Don’t worry about this little bit.","Once the water has moved into the hopper, turn your heat source down so that the water is between 185-195 degrees F.","Add your coffee, and gently (but thoroughly) submerge it with a bamboo paddle or butter knife.","Let the coffee brew, undisturbed, for one minute and 10 seconds.", "In one brisk motion, remove your siphon from its heat source and give it ten stirs with a bamboo paddle.","Your coffee should take another minute or so to draw downward and finally rest in the bulb. You'll know it's ready when a dome of grounds has formed at the top of the filter, and when the coffee at the bottom has begun to bubble at approximately the pace and strength of a kitten’s heartbeat.\nRemove the hopper and serve. In order to guarantee the most complex cup, give the coffee a few minutes to cool."]
@@ -99,6 +100,7 @@ coffee_data = {
         "time" : "12 hours",
         "timer" : [0,0,0,0,0,0,0,0,0],
         "lvl": "Advanced",
+        "qs" : ["Grind 340 g of whole bean coffee.", "Add the coffee and 1 oz / 28 g of roasted chicory to the stockpot.", "Pour 2 qt / 2 L of filtered water into the stockpot.", "Cover the stockpot, and steep the coffee and chicory for 12 hours at room temperature.", "After 12 hours, pour the concentrate, which will be thick and viscous, through a fine-meshed sieve into the jar.", "Add 4 tablespoons of simple syrup. Stir until syrup is incorporated.", "Alternatively: Add just enough simple syrup to each serving to sweeten."],
         "background" : "Initially conceived as an alternative to the erratically composed and often disappointing iced latte, our New Orleans-style Iced Coffee is cold-brewed for 12 hours with roasted chicory and sweetened with organic cane sugar. The end result is a potent concentrate that we cut with organic whole milk. It's sweet, creamy, and consistently delicious.",
         "materials" : ["Simple syrup","4 qt nonreactive stockpot","Wooden spoon", "Fine-meshed sieve","2 qt jar", "Grinder", "Scale", "Milk, cream or dairy alternative"],
         "explanations" : ["Grind 12 oz / 340 g of whole bean coffee on a coarse setting. Coffee grounds should be gritty and the particles should be easy to distinguish from one another.", "Add the coffee and 1 oz / 28 g of roasted chicory to the stockpot.","Pour 2 qt / 2 L of filtered water into the stockpot. Stir with a wooden spoon until the grounds are fully saturated.","Cover the stockpot, and steep the coffee and chicory for 12 hours at room temperature.","After 12 hours, pour the concentrate, which will be thick and viscous, through a fine-meshed sieve into the jar.","Add 4 tablespoons / 68 g of simple syrup (made from 3 tablespoons each of sugar and water heated until dissolved) to the coffee concentrate. Stir until syrup is incorporated.","Alternatively: Add just enough simple syrup to each serving to sweeten."]
@@ -219,8 +221,9 @@ def makeQuiz(select):
 @app.route('/outline/<select>')
 def outline(select):
     global coffee_data
+    global wish_list
     choice = coffee_data[select]
-    return render_template("outline.html", data=coffee_data, brew=choice, choice=select)
+    return render_template("outline.html", data=coffee_data, brew=choice, choice=select, wish_list=wish_list)
 
 @app.route('/master_quiz')
 def m_quiz():
