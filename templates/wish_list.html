@@ -80,6 +80,7 @@
 					margin:10px;
 				}
 				.info {
+					padding-top: 25px;
 					font-size: 20px;
 					font-weight: bold;
 					color: rgb(75, 75, 93);
@@ -87,6 +88,7 @@
 				.tested {
 					font-size: 24px;
 					color: black;
+					/* color : rgb(233, 233, 80); */
 					
 				}
         </style>
@@ -121,7 +123,9 @@
 			<div class= "row" > 
 				<div class="info tested" align="center"> You have lerned & tested <span id ="count">0</span> method(s) out of 8</a> !</div>
 		
-				<div class="info" align="center"> After you're done learning all the methods, you can also take the  <a href='/master_quiz'>master quiz</a> to test your understanding!</div>
+				<div class="info" align="center"> After you're done learning all the methods, you can also take the  <a href='/master_quiz'>master quiz</a> to test your understanding!<br> 
+				Or take the <a href="mini_quiz" >mini master quiz</a> to be tested on the ones you learned!
+				</div>
 			</div> <br>
         <div class= "row">
             <div class="col-md-1"></div>
@@ -133,6 +137,9 @@
             <div class="col-md-5"><h3>Learned & Tested </h3><div id="done_list">
 							
 						</div>
+						<!-- <a href="mini_quiz" class= "btn btn-dark" >Take the Mini Master Quiz!</a> -->
+							<form action="/mini_quiz" method="get" id="form1" align="right">
+								<button class= 'btn btn-dark'> Take the Mini Master Quiz  </button></form> 
 						
 					</div>
         </div>

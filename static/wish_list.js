@@ -124,13 +124,12 @@ function make_bar (rating, div) {
     } else if (rating>40) {
         color = 'orange'
     } else if (rating>15) {
-        color = 'yellow'
+        color = 'rgb(233, 233, 80)'
     } else {
         color = 'red'
     }
     $(p).css('background-color', color)
     $(bar).append(p)
-
     $(div).append(bar)
 }
 

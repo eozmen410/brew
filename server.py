@@ -1,6 +1,4 @@
 from flask import Flask, render_template
-# from flask_googlemaps import GoogleMaps
-# from flask_googlemaps import Map
 from flask import Response, request, jsonify
 app = Flask(__name__)
 
