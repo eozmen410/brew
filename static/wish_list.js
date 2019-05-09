@@ -119,7 +119,7 @@ function make_bar (rating, div) {
     $(p).css('height', 'inherit')
     $(p).css('border', '15px;')
     var color;
-    if (rating>70) {
+    if (rating>80) {
         color = 'green'
     } else if (rating>40) {
         color = 'orange'

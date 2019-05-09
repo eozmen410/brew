@@ -17,7 +17,7 @@ coffee_data = {
         "qs" : ["Pour water and place filter.", "Pour coffee onto filter.Turn on the coffee maker."],
         "background" : "By our own standards, we still think a handmade cup of coffee will always be more special, but sometimes, we all feel the need to press a button and let the gentle hum of modernity ease our busy, bothered minds. The first automatic drip brewer was patented in the 1950s and has since become a fixture in hotel rooms, break rooms, and the kitchens of coffee connoisseurs and novices alike. An envelope of Blue Bottle Perfectly Ground—with the right amount of fresh coffee at the right grind—will give you a more delicious cup without sacrificing any of the convenience.",
         "materials" : ["Grounded Coffee","Automatic Coffee Maker", "Coffee Maker Filter", "Measuring cup or gram scale"],
-        "explanations" : ["Pour 1½ cups (350 g) of cold water into the coffee maker reservoir.\n Place filter in coffee maker basket. ", "Pour grounded coffee onto filter. \n Turn on coffee maker, wait until the water boils and the coffee container is full.", "Enjoy your coffee!"]
+        "explanations" : ["Pour 1½ cups (350 g) of cold water into the coffee maker reservoir.\n Place filter in coffee maker basket. ", "Pour grounded coffee onto filter. \n Turn on coffee maker, wait until the water boils and the coffee container is full."]
     },
     "AeroPress" : {
         "name": "AeroPress",
@@ -157,6 +157,36 @@ master_quiz = [
         "q": "Which brewing method uses simple syrup?",
         "a" : "New Orleans Iced Coffee",
         "w" : ["AeroPress", "Chemex", "Siphon", "New Orleans Iced Coffee"]
+    },
+    {
+        "q" : "How many stirs are required after removing the Siphon from the heat source?",
+        "a" : "10",
+        "w" : ["15", "20", "5", "10"]
+    },
+    {
+        "q" : "For the AeroPress method, how long should you let the coffee sit after you've added hot water for the first time?",
+        "a" : "30 seconds",
+        "w" : ["1 minute", "10 seconds", "30 seconds", "2 minutes"]
+    },
+    {
+        "q" : "How many pours in total is required for Chemex ?",
+        "a" : "4",
+        "w" : ["1" , "10", "4" , "8"]
+    }, 
+    {
+        "q" : "Which method requires you to wet the wool filter first?",
+        "a" : "Cold Brew",
+        "w" : ["Coffee Machine", "Chemex", "AeroPress", "Cold Brew"]
+    }, 
+    {
+        "q" : "For which method do you need to purge your grouphead of the machine thoroughly with water?",
+        "a" : "Espresso",
+        "w" : ["Coffee Machine", "AeroPress", "Espresso", "Siphon"]
+    }, 
+    {
+        "q" : "For the French Press, how long should you let your coffee steep?",
+        "a" : "4 minutes",
+        "w" : ["5 minutes", "4 minutes", "30 seconds", "1 minute"]
     }
 ]
 wish_list = []
@@ -231,5 +261,10 @@ def m_quiz():
     global done_list
     return render_template("master_quiz.html", quiz=master_quiz, done=done_list)
 
+@app.route('/mini_quiz')
+def mini_q():
+    global master_quiz
+    global done_list
+    return render_template("mini_master.html",quiz=master_quiz, done=done_list)
 if __name__ == '__main__':
 	app.run(debug = True)

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> -->
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+        	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <style>
+            #step_img{
+                max-width: 600px;
+                max-height: 600px;
+                margin-right: auto;
+                margin-left: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+                text-align: center;
+                margin: 35px;
+                
+            }
+            #imgdiv {
+                display: block;
+                /* height: 600px;
+                width: 600px; */
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #expl {
+                /* background-color: #00816A; */
+                color: rgb(17, 93, 55);
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 35px;
+                width: 500px;
+            }
+            .invisible {
+                display: none;
+            }
+            .title {
+                background-color:rgb(11, 11, 90);
+                color: white;
+                font-weight: bold;
+                font-size:20px;
+                /* text-align: center; */
+                padding: 25px;
+            }
+            .nav-item {
+                padding: 10px;
+                display: inline !important;
+            }
+            #method {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 28px;
+                font-weight: bolder;
+                color:rgb(43, 85, 165);
+                margin-bottom: 50px;
+            }
+            .question {
+                font-size: 20px;
+                font-weight: bold;
+                padding: 15px;
+                text-align: center;
+                width: 100%;
+
+            }
+            .m-choice {
+                font-size: 20px;
+                width: 45%;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                display: inline-block;
+                cursor: pointer;
+                background-color:cornflowerblue;
+                color: white;
+                border-radius: 10px;
+                margin: 15px;
+                text-align: center;
+            }
+            .q-row {
+                border: 1px solid gray;
+                border-radius: 10px;
+                margin: 5px;
+            }
+            .ans {
+                font-size: 18px;
+                color: rgb(3, 3, 78);
+                text-align: center;
+                font-weight: bold;
+
+            }
+            #score {
+                    color: darkgreen;
+                    font-size: 28px;
+                    font-weight: bolder;
+                    text-align: center;
+                    width: 100%;
+                }
+            .warn {
+                font-size: 24px;
+                font-weight: bold;
+                color:red;
+                padding: 15px;
+                border-radius: 10px;
+                border: 1px solid red;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            .invisible{
+                display: none;
+            }
+            .options{
+                /* margin-left: 400px; */
+                padding: 15px;
+                width: 100%;
+                /* margin-right: auto; */
+                /* font-weight: bold; */
+                /* font-size: 17px; */
+            }
+            .choose {
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 18px;
+            }
+            #yes {
+                margin-left: 400px;
+                color: black;
+            }
+            #no {
+                margin-right: 150px;
+            }
+        </style>
+        <script type="text/javascript">
+            var quiz = {{quiz|tojson}}
+            var done = {{done|tojson}}
+        </script>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename = 'mini_master.js') }}"></script>
+    </head>
+    <body>
+        <div class="container-fluid" >
+  
+            <nav class="navbar title">
+					<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button> -->
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						  <span>Brew!</span>
+						<a class="nav-item active" href="/">Home</a>
+                        <a class="nav-item " href="/wish_list">My Lists</a>
+                        <a class="nav-item nav-link" href="/master_quiz">Master Quiz</a>
+					</div>
+				  </nav>
+
+                <!-- <form action="/wish_list" method="get" id="form1" align="right">
+                    <button class= 'btn btn-primary'> View My Lists <span class='glyphicon glyphicon-list-alt'></span> </button></form>
+                    <form action="/" method="get" id="form1" align="right">
+                        <button class= 'btn btn-primary'> <span class='glyphicon glyphicon-home'></span> </button></form>
+        
+         -->
+         <div id="method" >Mini Master Quiz</div> 
+        <div class="row"> 
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <!-- <div class="row warn" id="warn-msg" >Warning! Looks like you're trying to take the master quiz before learning all the methods. This quiz includes questions about all the methods listed. Are you sure you want to continue?
+                    <br> 
+                    <div class='options' >
+                    <button class="btn btn-dark choose" id="yes" >Yes let me try!</button>
+                    <a class="btn btn-info choose" id="no" href='/wish_list'>No take me back to learning.</a>
+                </div></div> -->
+                <div class="row"  id="quiz-content"></div>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        
+       
+    </div>
+
+    </body>
+</html>

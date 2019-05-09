@@ -1,19 +1,35 @@
 $(document).ready(function(){
-    console.log('master quiz ready')
+    console.log('mini master quiz ready')
+    console.log(quiz)
+    console.log(done)
+    quiz = pickQs(quiz, done_names(done))
+    console.log("QUIZ")
     console.log(quiz)
     shuffleArray(quiz)
-    quiz = quiz.slice(8)
-    if (done.length== 8){
-        $("#warn-msg").addClass('invisible')
-        makeQuestion(q_nb)
-    } 
-    $("#yes").click(function(){
-        $("#warn-msg").addClass('invisible')
-        makeQuestion(q_nb)
-    })
-
+    makeQuestion(q_nb)
+   
 
 })
+
+function done_names (done) {
+    var ans = []
+    for (var i=0; i<done.length; i++) {
+        console.log(done[i])
+        ans.push(done[i]['brew']['name'])
+    }
+    return ans;
+}
+
+function pickQs(q, done) {
+    qs = []
+    for (var i=0; i<q.length; i++){
+        for (var j = 0; j<done.length; j++) {
+            if ( q[i]['q'].includes(done[j]) || q[i]['a'].includes(done[j]) )
+                qs.push(q[i])
+        }
+    }
+    return qs;
+}
  var answers = []
  var q_nb = 0;
 function makeQuestion(nb) {
@@ -42,6 +58,7 @@ function makeQuestion(nb) {
             } else {
                 console.log('checking answers')
                 $("#quiz-content").empty()
+                // q_nb--
                 checkAnswers()
             }
         })
@@ -84,7 +101,7 @@ function checkAnswers() {
         }
         $("#quiz-content").append(q_row)
     }
-    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb+1)*100)+ "% <br> <a class='btn btn-primary' href='/master_quiz'>Start Over     <span class='glyphicon glyphicon-repeat'></span></a></div>")
+    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb)*100)+ "% <br> <a class='btn btn-primary' href='/mini_quiz'>Start Over     <span class='glyphicon glyphicon-repeat'></span></a></div>")
 }
 
 
