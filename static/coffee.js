@@ -209,10 +209,8 @@ function addRateBtn() {
 }
 
 function updateBar() {
-    
     var width = step / brew['nb_steps'] *100
     $("#p_bar").css('width', width + '%')
-    
 }
 
 function saveRating(ratingValue) {

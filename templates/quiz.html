@@ -69,11 +69,14 @@
         	        padding: 10px;
                     /* width: 200px; */
                     height: 200px;
-                    margin-left: auto;
-                    margin-right: auto;
+                    margin-left: 40px;
+                    margin-right: 40px;
 				}
                 .drag-drop {
                     height: 500px;
+                    /* width: 80%;
+                    margin-left: auto;
+                    margin-right: auto; */
                 }
                 .steps {
                     color: rgb(66, 70, 61);
@@ -108,6 +111,7 @@
                     font-weight: bolder;
                     text-align: center;
                     width: 100%;
+                    padding-bottom: 20px;
                 }
                 #name {
                     text-align: center;
@@ -127,6 +131,12 @@
                     margin-right: auto;
                     padding-left: 200px;
                 }
+                .ncont {
+					color: white;
+				}
+				.brew {
+					color: rgb(111, 181, 199);
+				}
         </style>
         <script type="text/javascript">
             var data = {{data|tojson}}
@@ -143,10 +153,10 @@
 					  <span class="navbar-toggler-icon"></span>
 					</button> -->
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-						  <span>Brew!</span>
-						<a class="nav-item active" href="/">Home</a>
-                        <a class="nav-item " href="/wish_list">My Lists</a>
-                        <a class="nav-item nav-link" href="/master_quiz">Master Quiz</a>
+						  <span class='brew'>Brew!</span>
+						<a class="nav-item ncont active" href="/">Home</a>
+                        <a class="nav-item ncont" href="/wish_list">My Lists</a>
+                        <a class="nav-item ncont nav-link" href="/master_quiz">Master Quiz</a>
 					</div>
 				  </nav>
 

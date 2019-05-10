@@ -91,6 +91,12 @@
 					/* color : rgb(233, 233, 80); */
 					
 				}
+				.ncont {
+					color: white;
+				}
+				.brew {
+					color: rgb(111, 199, 177);
+				}
         </style>
         <script type="text/javascript">
             var wish_list = {{wish_list|tojson}}
@@ -108,10 +114,10 @@
 					</button> -->
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					  <div class="navbar-nav">
-						  <span>Brew!</span>
-						<a class="nav-item nav-link active" href="/">Home</a>
-						<a class="nav-item nav-link" href="/wish_list">My Lists</a>
-						<a class="nav-item nav-link" href="/master_quiz">Master Quiz</a>
+						  <span class='brew'>Brew!</span>
+						<a class="nav-item nav-link ncont" href="/">Home</a>
+						<a class="nav-item nav-link ncont" href="/wish_list">My Lists</a>
+						<a class="nav-item nav-link ncont" href="/master_quiz">Master Quiz</a>
 						<!-- <a class="nav-item nav-link" href="/add_item">Add Item</a> -->
 					
 					  </div>
@@ -124,7 +130,7 @@
 				<div class="info tested" align="center"> You have lerned & tested <span id ="count">0</span> method(s) out of 8</a> !</div>
 		
 				<div class="info" align="center"> After you're done learning all the methods, you can also take the  <a href='/master_quiz'>master quiz</a> to test your understanding!<br> 
-				Or take the <a href="mini_quiz" >mini master quiz</a> to be tested on the ones you learned!
+				Or take the <a href="mini_quiz" >mini master quiz</a> to be tested on the ones you learned until now!
 				</div>
 			</div> <br>
         <div class= "row">

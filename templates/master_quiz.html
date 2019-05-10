@@ -108,6 +108,7 @@
                 border: 1px solid red;
                 margin-top: 15px;
                 margin-bottom: 15px;
+                text-align: center;
             }
             .invisible{
                 display: none;
@@ -124,13 +125,30 @@
                 margin-left: auto;
                 margin-right: auto;
                 font-size: 18px;
+                padding: 15px;
+                margin: 5px;
             }
             #yes {
-                margin-left: 400px;
+                /* margin-left: 400px; */
                 color: black;
             }
-            #no {
+            /* #no {
                 margin-right: 150px;
+            } */
+            .ncont {
+					color: white;
+				}
+				.brew {
+					color: rgb(111, 199, 177);
+				}
+            .a {
+                color : darkslategray;
+                font-size: 20px;
+                font-weight: lighter;
+            }
+            .b {
+                color : black;
+                font-size: 20px;
             }
         </style>
         <script type="text/javascript">
@@ -148,10 +166,10 @@
 					  <span class="navbar-toggler-icon"></span>
 					</button> -->
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-						  <span>Brew!</span>
-						<a class="nav-item active" href="/">Home</a>
-                        <a class="nav-item " href="/wish_list">My Lists</a>
-                        <a class="nav-item nav-link" href="/master_quiz">Master Quiz</a>
+						  <span class='brew'>Brew!</span>
+						<a class="nav-item ncont" href="/">Home</a>
+                        <a class="nav-item ncont" href="/wish_list">My Lists</a>
+                        <a class="nav-item nav-link ncont" href="/master_quiz">Master Quiz</a>
 					</div>
 				  </nav>
 
@@ -165,11 +183,15 @@
         <div class="row"> 
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <div class="row warn" id="warn-msg" >Warning! Looks like you're trying to take the master quiz before learning all the methods. This quiz includes questions about all the methods listed. Are you sure you want to continue?
+                <div class="row warn" id="warn-msg" >Warning! Looks like you're trying to take the master quiz before learning all the methods. <br>
+                    <span class='b'>This quiz includes questions about all the methods listed. Are you sure you want to continue?</span> <br> 
+                    <span class='a'>Alternatively, you can take the <a href="/mini_quiz">mini master quiz</a> that includes all the methods you've learned until now!</span>
                     <br> 
                     <div class='options' >
                     <button class="btn btn-dark choose" id="yes" >Yes let me try!</button>
-                    <a class="btn btn-info choose" id="no" href='/wish_list'>No take me back to learning.</a>
+                    
+                    <a class="btn btn-info choose" id="no" href='/wish_list'>No, take me back to learning.</a>
+                    <a class="btn btn-success choose"  href='/mini_quiz'>Take the mini master quiz.</a>
                 </div></div>
                 <div class="row"  id="quiz-content"></div>
 

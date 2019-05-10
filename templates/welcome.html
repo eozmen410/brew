@@ -84,9 +84,9 @@
 					font-size: 16px;
 					/* font-weight: bold; */
 				}
-				.home {
+				/* .home {
 					font-size: 18px;
-				}
+				} */
 				.outline {
 					margin-top: 20px;
 					border: 1px solid grey;
@@ -96,7 +96,12 @@
 					color: darkgray;
 					
 				}
-
+				.ncont {
+					color: white;
+				}
+				.brew {
+					color: rgb(111, 181, 199);
+				}
         </style>
         <script type="text/javascript">
 						var data = {{data|tojson}}
@@ -115,10 +120,10 @@
 					</button> -->
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 					  <div class="navbar-nav">
-						  <span>Brew!</span>
-						<a class="nav-item nav-link active home" href="/">Home</a>
-						<a class="nav-item nav-link" href="/wish_list">My Lists</a>
-						<a class="nav-item nav-link" href="/master_quiz">Master Quiz</a>
+						  <span class='brew'>Brew!</span>
+						<a class="nav-item nav-link ncont" href="/">Home</a>
+						<a class="nav-item nav-link ncont" href="/wish_list">My Lists</a>
+						<a class="nav-item nav-link ncont" href="/master_quiz">Master Quiz</a>
 					
 					  </div>
 					</div>

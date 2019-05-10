@@ -3,10 +3,14 @@ $(document).ready(function(){
     console.log(quiz)
     console.log(done)
     quiz = pickQs(quiz, done_names(done))
+    if (quiz.length > 0) {
+       $("#warn-msg").hide()
+       shuffleArray(quiz)
+       makeQuestion(q_nb)
+    }
     console.log("QUIZ")
     console.log(quiz)
-    shuffleArray(quiz)
-    makeQuestion(q_nb)
+    
    
 
 })
@@ -101,7 +105,7 @@ function checkAnswers() {
         }
         $("#quiz-content").append(q_row)
     }
-    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb)*100)+ "% <br> <a class='btn btn-primary' href='/mini_quiz'>Start Over     <span class='glyphicon glyphicon-repeat'></span></a></div>")
+    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb)*100)+ "% <br> <a style='margin-right:10px;'class='btn btn-info' href='/wish_list'>Keep Learning Other Methods!</a><a class='btn btn-primary' href='/mini_quiz'>Start Over     <span class='glyphicon glyphicon-repeat'></span></a></div>")
 }
 
 
