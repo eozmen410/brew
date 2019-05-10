@@ -54,7 +54,7 @@
             }
             #step_img{
                 max-width: 100%;
-                max-height: 600px;
+                max-height: 450px;
                 padding-left: 100px;
                 padding-right: 50px;
                 text-align: center;
@@ -143,6 +143,11 @@
 				.brew {
 					color: rgb(111, 199, 177);
 				}
+                .nxt-prv {
+                    padding: 15px;
+                    font-size: 20px;
+
+                }
         </style>
         <script type="text/javascript">
             var data = {{data|tojson}}
@@ -196,9 +201,9 @@
     </div>
         
         <div class="row">
-            <div class='col-md-6' style="padding-left: 300px;">
-                <button id="prevBtn" class="btn btn-dark">Previous Step</button> 
-                <button id="nextBtn" class="btn btn-dark">Next Step</button> <br></div>
+            <div class='col-md-6' style="padding-left: 780px;">
+                <button id="prevBtn" class="btn btn-secondary nxt-prv"><span class="glyphicon glyphicon-chevron-left"></span></button> 
+                <button id="nextBtn" class="btn btn-secondary nxt-prv" style="margin-left:15px;"><span class="glyphicon glyphicon-chevron-right"></span></button> <br></div>
         <!-- <div class="col-md-6" style="width: 100%;"></div> -->
         <div id="clockdiv" class="col-md-6">
         <div>
