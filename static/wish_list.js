@@ -10,6 +10,10 @@ $(document).ready(function(){
 
 function loadWish() {
     $("#wish_list").empty()
+    if (wish_list.length == 0) {
+        $("#wish_list").append("You have no brewing methods in your wish list. <br> You can visit the <a href='/'>homepage</a> to see the methods available and add to your wish list!")
+        $("#wish_list").addClass('no-msg')
+    }
     for(var i=0; i< wish_list.length; i++) {
         var name = wish_list[i]
         var row = $("<div>")
