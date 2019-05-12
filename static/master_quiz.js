@@ -75,7 +75,7 @@ function checkAnswers() {
         // console.log(q)
         $(q_row).append(question)
         $(q_row).append("<div class='ans'> Your answer: " + answers[i] + "</div>")
-        $(q_row).append("<div class='ans'> Correct answer: " + quiz[i]['a'] + "</div>")
+        // $(q_row).append("<div class='ans'> Correct answer: " + quiz[i]['a'] + "</div>")
         if (answers[i] == quiz[i]['a']){
             score++;
             $(q_row).css('background-color','rgba(45, 179, 45, 0.63)')
