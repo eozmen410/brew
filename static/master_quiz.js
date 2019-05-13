@@ -3,13 +3,16 @@ $(document).ready(function(){
     console.log(quiz)
     shuffleArray(quiz)
     quiz = quiz.slice(8)
+    $("#progress").hide()
     if (done.length== 8){
         $("#warn-msg").addClass('invisible')
+        $("#progress").show()
         makeQuestion(q_nb)
     } 
     $("#yes").click(function(){
         $("#warn-msg").addClass('invisible')
         makeQuestion(q_nb)
+        $("#progress").show()
     })
 
 
@@ -17,6 +20,9 @@ $(document).ready(function(){
  var answers = []
  var q_nb = 0;
 function makeQuestion(nb) {
+    var width = (nb+1) / 8 *100
+    $("#p_bar").css('width', width + '%')
+    $("#steps").html("Question " + String(nb+1) + " / 8")
     var q = quiz[nb]['q']
     var a = quiz[nb]['a']
     var w = quiz[nb]['w']
@@ -65,6 +71,8 @@ function shuffleArray(array) {
 
 
 function checkAnswers() {
+    $("#progress").hide()
+    $("#steps").hide()
     $("#quiz-content").empty()
     console.log('checking answers')
     var checking = []
@@ -84,7 +92,7 @@ function checkAnswers() {
         }
         $("#quiz-content").append(q_row)
     }
-    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb+1)*100)+ "% <br> <a class='btn btn-primary' href='/master_quiz'>Start Over     <span class='glyphicon glyphicon-repeat'></span></a></div>")
+    $("#quiz-content").prepend("<div id='score'>You scored:" + parseInt(score/(q_nb+1)*100)+ "% <br><a style='margin-right:10px;'class='btn btn-info choose' href='/wish_list'>Go Back to Learning</a> <a class='btn btn-primary choose' href='/master_quiz'>Start Over     <span class='glyphicon glyphicon-repeat'></span></a></div>")
 }
 
 

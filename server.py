@@ -33,7 +33,7 @@ coffee_data = {
         "name": "Chemex",
         "images": ["../static/images/aeropress1.jpg","../static/images/chemex2.jpg","../static/images/chemex3.jpg","../static/images/chemex4.jpg","../static/images/chemex5.jpg","../static/images/chemex6.jpg","../static/images/chemex7.jpg"],
         "nb_steps" : 7,
-        "timer" : [0,0,0,0,0.9,0,0,0,0],
+        "timer" : [0,0,0,0,0.9166667,0,0,0,0],
         "time": "3-4 minutes",
         "lvl" : "Intermediate",
         "qs" : ["Weigh coffee.", "Unfold filter, place it in your Chemex.", "Saturate the filter with warm water. Discard water.", "Pour ground coffee into the filter.", "First of the 4 pours for 45-55 seconds.", "Pour about 200 grams of water in a circular pattern.", "Keep adding water in 200 gram increments." ],

@@ -35,6 +35,23 @@
                 margin-top: 35px;
                 width: 500px;
             }
+            #progress {
+                width: 60%;
+                background-color: rgb(192, 189, 189);
+                margin-left:auto;
+                margin-right: auto;
+                margin-top: 15px;
+                margin-bottom:35px;
+                color: white;
+                font-size: 18px;
+                border-radius: 15px;
+            }
+            #p_bar {
+                width: 1%;
+                height: 30px;
+                background-color: rgb(50, 147, 172);  
+                border-radius: 15px;  
+            }
             .invisible {
                 display: none;
             }
@@ -54,10 +71,10 @@
                 text-align: center;
                 margin-left: auto;
                 margin-right: auto;
-                font-size: 28px;
+                font-size: 32px;
                 font-weight: bolder;
                 color:rgb(43, 85, 165);
-                margin-bottom: 50px;
+                margin-bottom: 30px;
             }
             .question {
                 font-size: 20px;
@@ -150,6 +167,13 @@
                 color : black;
                 font-size: 20px;
             }
+            #steps {
+                font-weight: bold;
+                font-size: 24px;
+                color :#00816A;
+                text-align: center;
+                margin-bottom: 25px;
+            }
         </style>
         <script type="text/javascript">
             var quiz = {{quiz|tojson}}
@@ -180,6 +204,11 @@
         
          -->
          <div id="method" >Master Quiz</div> 
+         <div class='row' id="steps" ></div>
+         <div id="progress">
+            <div id="p_bar"></div>
+    </div>
+   
         <div class="row"> 
             <div class="col-md-2"></div>
             <div class="col-md-8">
