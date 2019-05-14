@@ -8,6 +8,7 @@ $(document).ready(function(){
        shuffleArray(quiz)
        makeQuestion(q_nb)
     }
+    $("#progress").hide()
     console.log("QUIZ")
     console.log(quiz)
     
