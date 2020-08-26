@@ -1,5 +1,6 @@
 # Brew
-A flask app to learn/test different coffee brewing methods 
+A flask app to learn/test different coffee brewing methods. Includes interactive learning quizzes, personalized scores and lists!
+
 Final project for COMS 4170: User Interface Design
 
 ## Running the App
