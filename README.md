@@ -10,7 +10,7 @@ Final project for COMS 4170: User Interface Design
 
 ## Preview
 
-* Homepage 
+* Homepage with all the methods listed
 
 ![](/demo_pics/homepage.png)
 
@@ -18,7 +18,7 @@ Final project for COMS 4170: User Interface Design
 
 ![](/demo_pics/mylists.png)
 
-* Step-by-step instruction for each method
+* Step-by-step instructions for each method
 
 ![](/demo_pics/instructions.png)
 
