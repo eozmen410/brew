@@ -12,16 +12,16 @@ Final project for COMS 4170: User Interface Design
 
 * Homepage with all the methods listed
 
-![](/demo_pics/homepage.png)
+![](/demo/Homepage.png)
 
 * Customizable lists to pick which methods you want to learn
 
-![](/demo_pics/mylists.png)
+![](/demo/Mylists.png)
 
 * Step-by-step instructions for each method
 
-![](/demo_pics/instructions.png)
+![](/demo/Instructions.png)
 
 * Quiz to test your understanding
 
-![](/demo_pics/quiz.png)
+![](/demo/Quiz.png)
